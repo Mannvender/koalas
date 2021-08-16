@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text } from "rebass";
-import styled from "styled-components";
+import { Box, Heading, Text, Flex, Link as LinkBase } from "rebass";
+import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { GiKoala, GiHamburgerMenu } from "react-icons/gi";
+import { BiUpArrowAlt, BiDownArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { BsArrowRight } from "react-icons/bs";
 import "intersection-observer";
 
 import Header from "../components/Header";
 import PostLaunch from "../components/PostLaunch";
 import MintWidget from "../components/MintWidget";
 import ConnectWallet from "../components/ConnectWallet";
+import CircularButton from "../components/CircularButton";
 
 const CustomHeading = styled(Heading)`
   text-align: left;
@@ -29,10 +33,17 @@ const BannerContainer = styled(Box)`
     width: 1024px;
   }
 `;
+const Link = styled(LinkBase)`
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.light2};
+  font-size: 1.4rem;
+  font-family: inherit;
+`;
 
 const Index = () => {
   const [ethAddress, setEthAddress] = useState("");
   const [ethAddressWC, setEthAddressWC] = useState("");
+  const { colors } = useTheme();
 
   const connectMetamask = async () => {
     if (window.ethereum) {
@@ -109,89 +120,149 @@ const Index = () => {
 
   return (
     <>
-      <Header />
       <Box
         sx={{
-          maxWidth: 1024,
-          mx: "auto",
-          px: 0,
+          display: "grid",
+          gridTemplateColumns: "1fr 6fr 1fr",
         }}
       >
-        <Box mb={[5, 7]}>
-          <BannerContainer mb={[2, 4]}>
-            <Image
-              layout="fill"
-              objectFit="cover"
-              objectPosition="50% 30%"
-              src="/banner.webp"
-              alt="banner"
-              quality="70"
-            />
-          </BannerContainer>
-          <Heading
-            textAlign={["left", "center"]}
-            fontSize={[5, 6]}
-            fontFamily="inherit"
+        <Box
+          sx={{
+            height: "100vh",
+            borderRight: `1px solid ${colors.dark2}`,
+          }}
+        >
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            height="20%"
             sx={{
-              color: "primary",
+              borderBottom: `1px solid ${colors.dark2}`,
             }}
-            px={2}
           >
-            10k adventurous hearts that strive for excellence in whatever fields
-            they chose
-          </Heading>
-        </Box>
-        <Box mb={[5, 7]} id="team">
-          <Heading
-            fontSize={[6, 7]}
-            fontFamily="inherit"
-            mb={[2, 4]}
-            ml={[2, 0]}
+            <GiKoala size="64px" color={colors.light} />
+          </Flex>
+          <Flex alignItems="center" justifyContent="center" height="60%"></Flex>
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            height="20%"
+            sx={{
+              borderTop: `1px solid ${colors.dark2}`,
+            }}
           >
-            Founding Brothers & Sisters
-          </Heading>
+            <GiHamburgerMenu size="48px" />
+          </Flex>
         </Box>
-        <Box mb={[5, 7]} id="mint">
-          <Heading
-            fontSize={[6, 7]}
-            fontFamily="inherit"
-            mb={[2, 4]}
-            ml={[2, 0]}
+        <Box
+          sx={{
+            maxHeight: "100vh",
+            height: "100000px",
+            overflowY: "auto",
+            // backgroundColor: "gray",
+          }}
+        >
+          <Flex>
+            <Box
+              sx={
+                {
+                  // height: "1000px",
+                }
+              }
+              p={[6]}
+            >
+              <Heading
+                fontSize={[8]}
+                fontWeight={[400]}
+                sx={{
+                  color: colors.light,
+                }}
+                mb={[5]}
+              >
+                Kool Koalas
+              </Heading>
+              <Text mb={[5]}>
+                Kool Koalas are best friends of humans. They have survived
+                wildest of wild fires, they can definitely beat NFT game. Are
+                you ready to be a Kool Koala?
+              </Text>
+              <Flex>
+                <CircularButton>
+                  <BsArrowRight size="24px" />
+                </CircularButton>
+                <Heading
+                  fontFamily="inherit !important"
+                  fontSize={[2]}
+                  ml={[3]}
+                >
+                  Join Now
+                </Heading>
+              </Flex>
+            </Box>
+            <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
+              <Image
+                layout="fill"
+                objectFit="cover"
+                objectPosition="15% 30%"
+                src="/koala_01.jpg"
+                alt="banner"
+                quality="70"
+              />
+            </Box>
+          </Flex>
+        </Box>
+        <Box sx={{ height: "100vh" }}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            height="50%"
+            sx={{
+              borderBottom: `1px solid ${colors.dark2}`,
+            }}
           >
-            Join the EagleSquad
-          </Heading>
-          <MintWidget ethAddress={ethAddress || ethAddressWC} />
-        </Box>
-        <Box mb={[5, 7]} id="roadmap">
-          <CustomHeading
-            fontSize={[6, 7]}
-            px={2}
-            fontFamily="inherit"
-            mb={[2, 4]}
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              sx={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                marginBottom: "2rem",
+              }}
+            >
+              Twitter
+            </Link>
+            <Link
+              href="https://discord.com"
+              target="_blank"
+              sx={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                marginBottom: "2rem",
+              }}
+            >
+              Discord
+            </Link>
+          </Flex>
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+            height="30%"
+            sx={{ color: colors.light2 }}
           >
-            Roadmap
-          </CustomHeading>
-          <Box px={2}></Box>
+            <BiUpArrowAlt size="48px" />
+            <BiDownArrowAlt size="48px" />
+          </Flex>
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            height="20%"
+            sx={{
+              borderTop: `1px solid ${colors.dark2}`,
+            }}
+          ></Flex>
         </Box>
-        <Box mb={[5, 7]} id="post-launch">
-          <Heading fontSize={[6, 7]} px={2} fontFamily="inherit" mb={[2, 4]}>
-            Post Launch
-          </Heading>
-          <Box px={2}>
-            <PostLaunch />
-          </Box>
-        </Box>
-        <Box mb={[5, 7]} id="connect-wallet">
-          <ConnectWallet
-            handleMetamaskConnect={handleMetamaskConnect}
-            handleWalletConnect={handleWalletConnect}
-            ethAddress={ethAddress}
-            ethAddressWC={ethAddressWC}
-          />
-        </Box>
-        <Text color="gray" textAlign="center" my={[3]}>
-          Made by eagles with love❤️
-        </Text>
       </Box>
     </>
   );

@@ -1,14 +1,17 @@
 const primaryColor = "#cc011f";
 export default {
   fonts: {
-    sans: "Oswald, sans-serif",
-    serif: "EB Garamond, serif",
+    heading: "Cinzel Decorative, cursive",
+    body: "Poppins, sans-serif",
   },
   colors: {
     primary: primaryColor,
     accent1: "#6153a2",
     dark1: "#1a1a1a",
+    dark2: "#2c2c2c",
+    light: "#fff",
     light1: "#bbbbbb",
+    light2: "#4b4b4b",
   },
   breakpoints: ["576px", "768px", "992px", "1200px"],
   space: [0, 4, 8, 16, 32, 64, 128, 256],
