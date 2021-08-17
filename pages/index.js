@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Heading, Text, Flex, Link as LinkBase } from "rebass";
-import styled, { useTheme } from "styled-components";
+import styled, { useTheme, css } from "styled-components";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
@@ -41,6 +41,15 @@ const Link = styled(LinkBase)`
   color: ${(props) => props.theme.colors.light2};
   font-size: 1.4rem;
   font-family: inherit;
+`;
+const NavLink = styled(Link)`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.light1};
+  ${(props) =>
+    props.active &&
+    css`
+      border-bottom: 1px solid ${props.theme.colors.accent1};
+    `};
 `;
 const BgGradient = styled(Box)`
   background-image: radial-gradient(
@@ -186,7 +195,18 @@ const Index = () => {
           >
             <GiKoala size="64px" color={colors.light} />
           </Flex>
-          <Flex alignItems="center" justifyContent="center" height="60%"></Flex>
+          <Flex
+            justifyContent="center"
+            height="60%"
+            flexDirection="column"
+            px={[5]}
+          >
+            <NavLink active mb={[4]}>
+              Koalas
+            </NavLink>
+            <NavLink mb={[4]}>Join</NavLink>
+            <NavLink mb={[4]}>FAQs</NavLink>
+          </Flex>
           <Flex
             alignItems="center"
             justifyContent="center"
@@ -318,7 +338,7 @@ const Index = () => {
               Twitter
             </Link>
             <Link
-              href="https://discord.com"
+              href="https://discord.com/invite/drV5a2vYTV"
               target="_blank"
               sx={{
                 writingMode: "vertical-rl",
