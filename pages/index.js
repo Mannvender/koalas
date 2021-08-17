@@ -4,10 +4,12 @@ import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
-import Image from "next/image";
+import ImageBase from "next/image";
 import { GiKoala, GiHamburgerMenu } from "react-icons/gi";
 import { BiUpArrowAlt, BiDownArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
+import Viewer from "viewerjs";
+import "viewerjs/dist/viewer.css";
 import "intersection-observer";
 
 import Header from "../components/Header";
@@ -15,6 +17,7 @@ import PostLaunch from "../components/PostLaunch";
 import MintWidget from "../components/MintWidget";
 import ConnectWallet from "../components/ConnectWallet";
 import CircularButton from "../components/CircularButton";
+import ButtonOutline from "../components/ButtonOutline";
 
 const CustomHeading = styled(Heading)`
   text-align: left;
@@ -39,11 +42,52 @@ const Link = styled(LinkBase)`
   font-size: 1.4rem;
   font-family: inherit;
 `;
+const BgGradient = styled(Box)`
+  background-image: radial-gradient(
+      at 100% 0%,
+      ${(props) => props.theme.colors.primary} 0,
+      transparent 55%
+    ),
+    radial-gradient(
+      at 64% 26%,
+      ${(props) => props.theme.colors.primary} 0,
+      transparent 52%
+    );
+`;
+const Image = styled(ImageBase)`
+  cursor: pointer;
+`;
 
 const Index = () => {
   const [ethAddress, setEthAddress] = useState("");
   const [ethAddressWC, setEthAddressWC] = useState("");
   const { colors } = useTheme();
+
+  useEffect(() => {
+    const galley = document.getElementById("image-container");
+    const viewer = new Viewer(galley, {
+      url: "data-original",
+      title: function (image) {
+        return image.alt + " (" + (this.index + 1) + "/" + this.length + ")";
+      },
+      toolbar: {
+        zoomIn: 4,
+        zoomOut: 4,
+        oneToOne: 0,
+        reset: 4,
+        prev: 4,
+        play: {
+          show: 0,
+          size: "large",
+        },
+        next: 4,
+        rotateLeft: 0,
+        rotateRight: 0,
+        flipHorizontal: 0,
+        flipVertical: 0,
+      },
+    });
+  }, []);
 
   const connectMetamask = async () => {
     if (window.ethereum) {
@@ -154,12 +198,12 @@ const Index = () => {
             <GiHamburgerMenu size="48px" />
           </Flex>
         </Box>
-        <Box
+        <BgGradient
+          id="image-container"
           sx={{
             maxHeight: "100vh",
             height: "100000px",
             overflowY: "auto",
-            // backgroundColor: "gray",
           }}
         >
           <Flex>
@@ -169,7 +213,8 @@ const Index = () => {
                   // height: "1000px",
                 }
               }
-              p={[6]}
+              px={[6]}
+              pt={[6]}
             >
               <Heading
                 fontSize={[8]}
@@ -186,7 +231,7 @@ const Index = () => {
                 wildest of wild fires, they can definitely beat NFT game. Are
                 you ready to be a Kool Koala?
               </Text>
-              <Flex>
+              <Flex mb={[5]}>
                 <CircularButton>
                   <BsArrowRight size="24px" />
                 </CircularButton>
@@ -198,6 +243,45 @@ const Index = () => {
                   Join Now
                 </Heading>
               </Flex>
+              <Flex alignItems="center" justifyContent="space-between">
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="/koala_02.jpeg"
+                  alt="koala 1"
+                  quality="70"
+                  data-original="/koala_02.jpeg"
+                />
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="/koala_05.jpeg"
+                  alt="koala 2"
+                  quality="70"
+                  data-original="/koala_05.jpeg"
+                />
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="/koala_04.jpeg"
+                  alt="koala 3"
+                  quality="70"
+                  data-original="/koala_04.jpeg"
+                />
+                <Image
+                  height="100px"
+                  width="100px"
+                  src="/koala_03.jpeg"
+                  alt="koala 5"
+                  quality="70"
+                  data-original="/koala_04.jpeg"
+                />
+                {/* <Box>
+                  <ButtonOutline>
+                    <BsArrowRight size="24px" />
+                  </ButtonOutline>
+                </Box> */}
+              </Flex>
             </Box>
             <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
               <Image
@@ -207,10 +291,11 @@ const Index = () => {
                 src="/koala_01.jpg"
                 alt="banner"
                 quality="70"
+                data-original="/koala_01.jpeg"
               />
             </Box>
           </Flex>
-        </Box>
+        </BgGradient>
         <Box sx={{ height: "100vh" }}>
           <Flex
             flexDirection="column"

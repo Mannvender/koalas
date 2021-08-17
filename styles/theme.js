@@ -1,4 +1,4 @@
-const primaryColor = "#cc011f";
+const primaryColor = "#fe0000";
 export default {
   fonts: {
     heading: "Cinzel Decorative, cursive",
