@@ -12,6 +12,7 @@ export default () => {
             color: ${Theme.colors.light1};
             background-color: ${Theme.colors.dark1};
             font-family: ${Theme.fonts.body};
+            scroll-behavior: smooth;
         }
         * {
             box-sizing: border-box;

@@ -73,7 +73,7 @@ const Index = () => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    const galley = document.getElementById("image-container");
+    const galley = document.getElementById("koalas");
     const viewer = new Viewer(galley, {
       url: "data-original",
       title: function (image) {
@@ -176,7 +176,7 @@ const Index = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "1fr 6fr 1fr",
+          gridTemplateColumns: ["1fr", "1fr 6fr 1fr"],
         }}
       >
         <Box
@@ -201,7 +201,7 @@ const Index = () => {
             flexDirection="column"
             px={[5]}
           >
-            <NavLink active mb={[4]}>
+            <NavLink href="/#koalas" active mb={[4]}>
               Koalas
             </NavLink>
             <NavLink mb={[4]}>Join</NavLink>
@@ -219,30 +219,21 @@ const Index = () => {
           </Flex>
         </Box>
         <BgGradient
-          id="image-container"
+          id="koalas"
           sx={{
-            maxHeight: "100vh",
-            height: "100000px",
+            maxHeight: ["auto", "100vh"],
             overflowY: "auto",
           }}
         >
-          <Flex>
-            <Box
-              sx={
-                {
-                  // height: "1000px",
-                }
-              }
-              px={[6]}
-              pt={[6]}
-            >
+          <Flex flexDirection={["column", "row"]}>
+            <Box px={[5, 6]} pt={[5, 6]}>
               <Heading
-                fontSize={[8]}
+                fontSize={[6, 8]}
                 fontWeight={[400]}
                 sx={{
                   color: colors.light,
                 }}
-                mb={[5]}
+                mb={[3, 5]}
               >
                 Kool Koalas
               </Heading>
@@ -263,7 +254,11 @@ const Index = () => {
                   Join Now
                 </Heading>
               </Flex>
-              <Flex alignItems="center" justifyContent="space-between">
+              <Flex
+                alignItems="center"
+                justifyContent="space-between"
+                mb={[5, 0]}
+              >
                 <Image
                   height="100px"
                   width="100px"
