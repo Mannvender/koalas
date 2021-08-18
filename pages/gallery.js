@@ -8,6 +8,22 @@ import 'intersection-observer'
 import NavSection from '../components/NavSection'
 import SecondarySection from '../components/SecondarySection'
 
+const URLS = [
+  '18',
+  '06',
+  '07',
+  '08',
+  '09',
+  '10',
+  '12',
+  '11',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17'
+]
+
 const Gallery = () => {
   const { colors } = useTheme()
   return (
@@ -52,38 +68,15 @@ const Gallery = () => {
               mb={[5, 0]}
             >
               <SlickSlider {...settings}>
-                <Image
-                  height='250px'
-                  width='250px'
-                  src='/koala_02.jpeg'
-                  alt='koala 1'
-                  quality='70'
-                  data-original='/koala_02.jpeg'
-                />
-                <Image
-                  height='250px'
-                  width='250px'
-                  src='/koala_05.jpeg'
-                  alt='koala 2'
-                  quality='70'
-                  data-original='/koala_05.jpeg'
-                />
-                <Image
-                  height='250px'
-                  width='250px'
-                  src='/koala_04.jpeg'
-                  alt='koala 3'
-                  quality='70'
-                  data-original='/koala_04.jpeg'
-                />
-                <Image
-                  height='250px'
-                  width='250px'
-                  src='/koala_03.jpeg'
-                  alt='koala 5'
-                  quality='70'
-                  data-original='/koala_04.jpeg'
-                />
+                {URLS.map((number) => (
+                  <Image
+                    height='250px'
+                    width='250px'
+                    src={`/koala_${number}.png`}
+                    alt={`koala ${number}`}
+                    quality='70'
+                  />
+                ))}
               </SlickSlider>
             </Flex>
           </Flex>
