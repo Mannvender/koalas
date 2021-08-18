@@ -1,14 +1,20 @@
 import React from 'react'
 import { Box, Flex } from 'rebass'
 import { useTheme } from 'styled-components'
-import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
 
 import { Link } from './Links'
+import ArrowNavigator from './ArrowNavigator'
 
 const SecondarySection = () => {
   const { colors } = useTheme()
   return (
-    <Box sx={{ height: '100vh' }}>
+    <Box
+      sx={{
+        height: '100vh',
+        borderLeft: `1px solid ${colors.dark2}`,
+        borderTop: `1px solid ${colors.dark2}`
+      }}
+    >
       <Flex
         flexDirection='column'
         alignItems='center'
@@ -48,8 +54,7 @@ const SecondarySection = () => {
         height='30%'
         sx={{ color: colors.light2 }}
       >
-        <BiUpArrowAlt size='48px' />
-        <BiDownArrowAlt size='48px' />
+        <ArrowNavigator />
       </Flex>
       <Flex
         alignItems='center'

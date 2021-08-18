@@ -23,10 +23,13 @@ const Gallery = () => {
           id='gallery'
           sx={{
             maxHeight: ['auto', '100vh'],
-            overflowY: 'auto'
+            overflow: 'hidden'
           }}
         >
-          <Flex flexDirection={['column', 'row']}>
+          <Flex
+            flexDirection={['column', 'row']}
+            alignItems={['center', 'flex-start']}
+          >
             <Box px={[5, 6]} pt={[5, 6]}>
               <Heading
                 fontSize={[6, 8]}
@@ -36,48 +39,53 @@ const Gallery = () => {
                 }}
                 mb={[3, 5]}
               >
-                Gallery
+                Sneak Peak
               </Heading>
               <Text mb={[5]}>
-                Here is a sneak peak to some of our cute and brave Koalas. Hey
-                easy there with your eyes don't stare them for too long, they
-                are very shy 🥺
+                Our cute and brave friends are very shy please don't stare them
+                for too long 🥺
               </Text>
+            </Box>
+            <Flex
+              sx={{ height: ['auto', '100vh'], width: ['250px'] }}
+              alignItems={['center']}
+              mb={[5, 0]}
+            >
               <SlickSlider {...settings}>
                 <Image
-                  height='200px'
-                  width='200px'
+                  height='250px'
+                  width='250px'
                   src='/koala_02.jpeg'
                   alt='koala 1'
                   quality='70'
                   data-original='/koala_02.jpeg'
                 />
                 <Image
-                  height='200px'
-                  width='200px'
+                  height='250px'
+                  width='250px'
                   src='/koala_05.jpeg'
                   alt='koala 2'
                   quality='70'
                   data-original='/koala_05.jpeg'
                 />
                 <Image
-                  height='200px'
-                  width='200px'
+                  height='250px'
+                  width='250px'
                   src='/koala_04.jpeg'
                   alt='koala 3'
                   quality='70'
                   data-original='/koala_04.jpeg'
                 />
                 <Image
-                  height='200px'
-                  width='200px'
+                  height='250px'
+                  width='250px'
                   src='/koala_03.jpeg'
                   alt='koala 5'
                   quality='70'
                   data-original='/koala_04.jpeg'
                 />
               </SlickSlider>
-            </Box>
+            </Flex>
           </Flex>
         </Box>
         <SecondarySection />
@@ -89,19 +97,22 @@ const Gallery = () => {
 export default Gallery
 
 const settings = {
-  slidesToShow: 2,
-  centerMode: true,
+  slidesToShow: 3,
+  //   centerMode: true,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
   arrows: false,
+  infinite: true,
+  vertical: true,
+  verticalSwiping: true,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true
+        // slidesToShow: 4
+        // slidesToScroll: 1
+        // vertical: true
       }
     },
     {

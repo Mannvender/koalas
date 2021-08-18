@@ -1,17 +1,20 @@
 import React from 'react'
 import { Box, Flex } from 'rebass'
-import styled, { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { GiKoala, GiHamburgerMenu } from 'react-icons/gi'
+import { useRouter } from 'next/router'
 
 import { NavLink } from './Links'
 
 const NavSection = () => {
   const { colors } = useTheme()
+  const { pathname } = useRouter()
   return (
     <Box
       sx={{
         height: '100vh',
-        borderRight: `1px solid ${colors.dark2}`
+        borderRight: `1px solid ${colors.dark2}`,
+        borderBottom: `1px solid ${colors.dark2}`
       }}
     >
       <Flex
@@ -30,14 +33,18 @@ const NavSection = () => {
         flexDirection='column'
         px={[5]}
       >
-        <NavLink href='/#koalas' active mb={[4]}>
+        <NavLink href='/#koalas' active={pathname === '/'} mb={[4]}>
           Koalas
         </NavLink>
-        <NavLink href='/gallery' mb={[4]}>
+        <NavLink href='/gallery' active={pathname === '/gallery'} mb={[4]}>
           Gallery
         </NavLink>
-        <NavLink mb={[4]}>Join</NavLink>
-        <NavLink mb={[4]}>FAQs</NavLink>
+        <NavLink mb={[4]} active={pathname === '/join'}>
+          Join
+        </NavLink>
+        <NavLink mb={[4]} active={pathname === '/faq'}>
+          FAQs
+        </NavLink>
       </Flex>
       <Flex
         alignItems='center'
