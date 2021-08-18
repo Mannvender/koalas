@@ -36,7 +36,11 @@ const NavSection = () => {
         <NavLink href='/#koalas' active={pathname === '/'} mb={[4]}>
           Koalas
         </NavLink>
-        <NavLink href='/gallery' active={pathname === '/gallery'} mb={[4]}>
+        <NavLink
+          href='/gallery#gallery'
+          active={pathname === '/gallery'}
+          mb={[4]}
+        >
           Gallery
         </NavLink>
         <NavLink mb={[4]} active={pathname === '/join'}>
