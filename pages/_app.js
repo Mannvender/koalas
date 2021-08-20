@@ -9,24 +9,14 @@ import theme from '../styles/theme'
 const ToastContainer = styled(ToastContainerBase).attrs({
   // custom props
 })`
-  .Toastify__toast-container {
-  }
   .Toastify__toast {
     border-radius: 0;
   }
   .Toastify__toast--error {
     background-color: ${theme.colors.primary};
   }
-  .Toastify__toast--warning {
-  }
-  .Toastify__toast--success {
-  }
   .Toastify__toast--info {
     background-color: #1bbdd6;
-  }
-  .Toastify__toast-body {
-  }
-  .Toastify__progress-bar {
   }
 `
 function MyApp({ Component, pageProps }) {
