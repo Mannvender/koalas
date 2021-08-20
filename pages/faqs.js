@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Heading, Text, Flex, Link as LinkRebass } from 'rebass'
+import { Box, Heading, Text, Flex } from 'rebass'
 import styled, { useTheme } from 'styled-components'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
 
@@ -11,11 +11,11 @@ import SecondarySection from '../components/SecondarySection'
 import { FAQS } from '../messages'
 
 const TagContainer = styled(Box)`
-  border-bottom: 1px solid #3d3d3d;
+  border-bottom: 1px solid ${(props) => props.theme.colors.light2};
 `
 const QuestionContainer = styled(Flex)`
   font-weight: 300;
-  background-color: ${({ theme }) => theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.colors.dark};
 `
 const Link = styled(LinkBase)`
   &:hover {
@@ -93,10 +93,10 @@ const Faqs = () => {
                     {TAGS.map((tag, i) => (
                       <Badge
                         bgColor={
-                          category === tag ? colors.accent1 : colors.darkGray
+                          category === tag ? colors.accent1 : 'transparent'
                         }
                         border={`solid 1px ${
-                          category === tag ? colors.accent1 : '#3d3d3d'
+                          category === tag ? colors.accent1 : colors.light2
                         }`}
                         cursor='pointer'
                         mr={[3]}
@@ -116,7 +116,7 @@ const Faqs = () => {
                 >
                   Popular Questions
                 </Heading>
-                <QuestionContainer flexDirection='column' mb={[5]}>
+                <QuestionContainer p={[2, 3]} flexDirection='column' mb={[5]}>
                   {FAQS.filter((faq) =>
                     faq.ques
                       .toLocaleLowerCase()

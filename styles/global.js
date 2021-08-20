@@ -25,6 +25,9 @@ export default () => {
           color: ${Theme.colors.light1};
           margin-bottom: 32px;
         }
+        a:hover {
+          color: ${Theme.colors.light};
+        }
         .gray-filter {
           filter: grayscale(1);
         }
