@@ -7,50 +7,42 @@ import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { BsArrowRight } from 'react-icons/bs'
 
-import Header from '../components/Header'
-import PostLaunch from '../components/PostLaunch'
-import MintWidget from '../components/MintWidget'
-import ConnectWallet from '../components/ConnectWallet'
 import CircularButton from '../components/CircularButton'
 import NavSection from '../components/NavSection'
-import { Link } from '../components/Links'
-import ButtonOutline from '../components/ButtonOutline'
 import SecondarySection from '../components/SecondarySection'
+import Slider from '../components/Slider'
 
-const CustomHeading = styled(Heading)`
-  text-align: left;
-  @media (min-width: 1024px) {
-    text-align: center;
-  }
-`
 const walletConnKeyLS = 'wallet_permission'
 
-const BannerContainer = styled(Box)`
-  position: relative;
-  height: 550px;
-  width: 100%;
-  @media (min-width: 1024px) {
-    height: 700px;
-    width: 1024px;
-  }
-`
 const BgGradient = styled(Box)`
-  background-image: radial-gradient(
-      at 100% 0%,
-      ${(props) => props.theme.colors.primary} 0,
-      transparent 55%
-    ),
-    radial-gradient(
-      at 64% 26%,
-      ${(props) => props.theme.colors.primary} 0,
-      transparent 52%
-    );
+  @media (min-width: 1024px) {
+    :before {
+      content: '';
+      background-size: cover;
+      position: absolute;
+      top: 0%;
+      bottom: 0px;
+      right: 0px;
+      left: 12.5%;
+      background-image: radial-gradient(
+        at 0% 100%,
+        ${(props) => props.color} 0,
+        transparent 60%
+      );
+      opacity: 0.75;
+    }
+  }
 `
 
 const Index = () => {
   const [ethAddress, setEthAddress] = useState('')
   const [ethAddressWC, setEthAddressWC] = useState('')
+  const [gradientColor, setGradientColor] = useState('')
   const { colors } = useTheme()
+  const handleSliderChange = (color) => {
+    setGradientColor(color)
+  }
+  console.log(gradientColor)
 
   const connectMetamask = async () => {
     if (window.ethereum) {
@@ -135,6 +127,7 @@ const Index = () => {
       >
         <NavSection />
         <BgGradient
+          color={gradientColor}
           id='koalas'
           sx={{
             maxHeight: ['auto', '100vh'],
@@ -142,7 +135,7 @@ const Index = () => {
           }}
         >
           <Flex flexDirection={['column', 'row']}>
-            <Box px={[5, 6]} pt={[5, 6]}>
+            <Box px={[4, 5]} pt={[4, 5]} sx={{ flexBasis: '65%' }}>
               <Heading
                 fontSize={[6, 8]}
                 fontWeight={[400]}
@@ -153,71 +146,30 @@ const Index = () => {
               >
                 Kool Koalas
               </Heading>
-              <Text mb={[5]}>
+              <Text mb={[5]} sx={{ color: colors.light1 }}>
                 Kool Koalas are best friends of humans. They have survived
                 wildest of wild fires, they can definitely beat NFT game. Are
                 you ready to be a Kool Koala?
               </Text>
-              <Flex mb={[5]} alignItems='center'>
-                <CircularButton>
-                  <BsArrowRight size='24px' />
-                </CircularButton>
-                <Heading
-                  fontFamily='inherit !important'
-                  fontSize={[2]}
-                  ml={[3]}
-                >
-                  Join Now
-                </Heading>
-              </Flex>
-              {/* <Flex
-                alignItems='center'
-                justifyContent='space-between'
-                mb={[5, 0]}
-              >
-                <Image
-                  height='100px'
-                  width='100px'
-                  src='/koala_02.jpeg'
-                  alt='koala 1'
-                  quality='70'
-                  data-original='/koala_02.jpeg'
-                />
-                <Image
-                  height='100px'
-                  width='100px'
-                  src='/koala_05.jpeg'
-                  alt='koala 2'
-                  quality='70'
-                  data-original='/koala_05.jpeg'
-                />
-                <Image
-                  height='100px'
-                  width='100px'
-                  src='/koala_04.jpeg'
-                  alt='koala 3'
-                  quality='70'
-                  data-original='/koala_04.jpeg'
-                />
-                <Image
-                  height='100px'
-                  width='100px'
-                  src='/koala_03.jpeg'
-                  alt='koala 5'
-                  quality='70'
-                  data-original='/koala_04.jpeg'
-                />
-              </Flex> */}
+              <Box mb={[5, 2]} sx={{ textAlign: ['center', 'left'] }}>
+                <Slider afterChange={handleSliderChange} />
+              </Box>
             </Box>
-            <Box sx={{ position: 'relative', height: '100vh', width: '100%' }}>
+            <Box
+              sx={{
+                position: 'relative',
+                height: '100vh',
+                flexBasis: '35%',
+                display: ['none', 'unset']
+              }}
+            >
               <Image
                 layout='fill'
                 objectFit='cover'
-                objectPosition='15% 30%'
-                src='/koala_01.jpg'
+                objectPosition='0% 30%'
+                src='/koala_transparent.png'
                 alt='banner'
                 quality='70'
-                data-original='/koala_01.jpeg'
               />
             </Box>
           </Flex>
