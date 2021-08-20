@@ -1,19 +1,26 @@
-import styled, { css } from 'styled-components'
-import { Link as LinkBase } from 'rebass'
+import styled, { css, useTheme } from 'styled-components'
+import Link from 'next/link'
+import { Link as LinkBase, Box } from 'rebass'
 
-export const Link = styled(LinkBase)`
+export const LinkExternal = styled(LinkBase)`
   text-decoration: none;
   color: ${(props) => props.theme.colors.light2};
   font-size: 1.4rem;
   font-family: inherit;
 `
 
-export const NavLink = styled(Link)`
-  font-size: 1rem;
-  color: ${(props) => props.theme.colors.light1};
+export const Container = styled(Box)`
   ${(props) =>
     props.active &&
     css`
       border-bottom: 1px solid ${props.theme.colors.accent1};
     `};
 `
+export const LinkInternal = ({ href, children, active, ...rest }) => {
+  console.log(active, '-------------')
+  return (
+    <Container active={active} {...rest}>
+      <Link href={href}>{children}</Link>
+    </Container>
+  )
+}

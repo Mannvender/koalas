@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
 
-const AVAILABLE_PATHS = ['/', '/gallery']
+const AVAILABLE_PATHS = ['/', '/mint']
 
 const ArrowNavigator = () => {
   const { pathname, push } = useRouter()
@@ -10,6 +10,7 @@ const ArrowNavigator = () => {
   const numOfPaths = AVAILABLE_PATHS.length
   // console.log(currentIndex)
   const handleUpClick = () => {
+    console.log('up clicked')
     if (currentIndex === 0) push(AVAILABLE_PATHS[numOfPaths - 1])
     else push(AVAILABLE_PATHS[currentIndex - 1])
   }

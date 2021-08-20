@@ -1,5 +1,5 @@
-import React from "react";
-import Theme from "./theme";
+import React from 'react'
+import Theme from './theme'
 
 export default () => {
   return (
@@ -20,7 +20,12 @@ export default () => {
         h1, h2, h3, h4, h5, h6 {
             font-family: ${Theme.fonts.heading} !important;
         }
+        a{
+          text-decoration: none;
+          color: ${Theme.colors.light1};
+          margin-bottom: 32px;
+        }
     `}
     </style>
-  );
-};
+  )
+}

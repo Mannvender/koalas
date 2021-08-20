@@ -9,6 +9,14 @@ const StyledButton = styled.button`
   color: ${(props) => props.theme.colors.light1};
   cursor: pointer;
   box-shadow: 0 4px 12px ${(props) => props.theme.colors.primary};
+  font-weight: 600;
+  padding: 5px;
+  font-size: 1rem;
+  @media (min-width: 1024px) {
+    font-size: 1.1rem;
+    height: 56px;
+    width: 56px;
+  }
 `
 
 export default StyledButton

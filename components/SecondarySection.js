@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Flex } from 'rebass'
 import { useTheme } from 'styled-components'
 
-import { Link } from './Links'
+import { LinkExternal as Link } from './Links'
 import ArrowNavigator from './ArrowNavigator'
 
 const SecondarySection = () => {

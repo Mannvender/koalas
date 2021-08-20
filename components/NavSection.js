@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { GiKoala, GiHamburgerMenu } from 'react-icons/gi'
 import { useRouter } from 'next/router'
 
-import { NavLink } from './Links'
+import { LinkInternal as NavLink } from './Links'
 
 const NavSection = () => {
   const { colors } = useTheme()
@@ -36,10 +36,15 @@ const NavSection = () => {
         <NavLink href='/#koalas' active={pathname === '/'} mb={[4]}>
           Koalas
         </NavLink>
-        <NavLink mb={[4]} active={pathname === '/join'}>
+        <NavLink href='/mint#mint' active={pathname === '/mint'} mb={[4]}>
           Join
         </NavLink>
-        <NavLink mb={[4]} active={pathname === '/faq'}>
+        <NavLink
+          href='#'
+          active={pathname === '/faq'}
+          style={{ color: 'black' }}
+          mb={[4]}
+        >
           FAQs
         </NavLink>
       </Flex>
