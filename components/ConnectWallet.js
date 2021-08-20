@@ -5,7 +5,7 @@ import Image from 'next/image'
 const StyledBox = styled(Box)`
   height: 40px;
   width: 40px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow: hidden;
   cursor: pointer;
   ${(props) =>
@@ -29,7 +29,7 @@ const ConnectWallet = ({
       >
         <Image
           quality='60'
-          src='https://i.ibb.co/h961JXz/metamask-round.png'
+          src='/metamask.jpg'
           alt='metamask-round'
           height='64px'
           width='64px'
@@ -39,7 +39,7 @@ const ConnectWallet = ({
       <StyledBox onClick={handleWalletConnect} active={Boolean(ethAddressWC)}>
         <Image
           quality='60'
-          src='https://i.ibb.co/Kxw8gSZ/wallet-connect.png'
+          src='/walletconnect.jpeg'
           alt='wallet-connect'
           height='64px'
           width='64px'
