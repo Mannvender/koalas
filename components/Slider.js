@@ -43,6 +43,7 @@ const Slider = ({ afterChange }) => {
           src={`/koala_${number}.png`}
           alt={`koala ${number}`}
           quality='70'
+          key={number}
         />
       ))}
     </SlickSlider>

@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Flex } from 'rebass'
 import { useTheme } from 'styled-components'
 
 import { LinkExternal as Link } from './Links'
 import ArrowNavigator from './ArrowNavigator'
+import ConnectWallet from './ConnectWallet'
 
-const SecondarySection = () => {
+const SecondarySection = ({
+  ethAddress,
+  ethAddressWC,
+  handleMetamaskConnect,
+  handleWalletConnect,
+  showConnectWallet
+}) => {
   const { colors } = useTheme()
+
   return (
     <Box
       sx={{
@@ -63,7 +71,17 @@ const SecondarySection = () => {
         sx={{
           borderTop: `1px solid ${colors.dark2}`
         }}
-      ></Flex>
+        id='connect-wallet'
+      >
+        {showConnectWallet && (
+          <ConnectWallet
+            handleMetamaskConnect={handleMetamaskConnect}
+            handleWalletConnect={handleWalletConnect}
+            ethAddress={ethAddress}
+            ethAddressWC={ethAddressWC}
+          />
+        )}
+      </Flex>
     </Box>
   )
 }

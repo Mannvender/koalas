@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Heading, Text, Flex } from 'rebass'
-import styled, { useTheme, css } from 'styled-components'
+import { useTheme } from 'styled-components'
 import Web3 from 'web3'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
-import { BsArrowRight } from 'react-icons/bs'
-
-import CircularButton from '../components/CircularButton'
 import NavSection from '../components/NavSection'
 import SecondarySection from '../components/SecondarySection'
 import MintWidget from '../components/MintWidget'
+import { address, abi } from '../smartContract'
+import { DEFAULT_ERROR_MESSAGE } from '../messages'
 
 const walletConnKeyLS = 'wallet_permission'
 
 const Mint = () => {
   const [ethAddress, setEthAddress] = useState('')
   const [ethAddressWC, setEthAddressWC] = useState('')
+  const [supplyStats, setStats] = useState({})
   const { colors } = useTheme()
+
+  const handleMetamaskConnect = () => {
+    localStorage.setItem(walletConnKeyLS, 'true')
+    setEthAddressWC('')
+    connectMetamask()
+  }
+
+  const handleWalletConnect = () => {
+    setEthAddress('')
+    walletConnectInit()
+  }
 
   const connectMetamask = async () => {
     if (window.ethereum) {
@@ -31,22 +42,20 @@ const Mint = () => {
         }
       } catch (err) {
         if (err.code === 4001)
-          toast.error(
-            "You've missed the boat, Please click on metamask icon to connect"
-          )
+          toast.error('Please click on metamask icon to connect.')
         else if (err.code === -32002) {
           toast.info(
             "You'll find connection req when you click on Metamask extension"
           )
         } else {
-          toast.error('Arrrg! Something went wrong')
+          toast.error(DEFAULT_ERROR_MESSAGE)
         }
       }
       window.web3.eth.getAccounts().then((ethAddresses) => {
         if (ethAddresses[0]) setEthAddress(ethAddresses[0])
       })
     } else {
-      toast.error('Please install Metamask extension and try again')
+      toast.error('Install Metamask extension and try again.')
     }
   }
 
@@ -64,11 +73,11 @@ const Mint = () => {
       const web3 = new Web3(provider)
       window.web3 = web3
       const ethAddresses = await web3.eth.getAccounts()
-      console.log('Wallet connect addresses found: ', ethAddresses)
+      // console.log('Wallet connect addresses found: ', ethAddresses)
       if (ethAddresses[0]) setEthAddressWC(ethAddresses[0])
     } catch (err) {
       console.log('Error while connecting to Wallet Connect : ', err)
-      toast.error(err?.message || 'Something went wrong')
+      toast.error(err?.message || DEFAULT_ERROR_MESSAGE)
     }
   }
 
@@ -81,16 +90,25 @@ const Mint = () => {
     }
   }, [])
 
-  const handleMetamaskConnect = () => {
-    localStorage.setItem(walletConnKeyLS, 'true')
-    setEthAddressWC('')
-    connectMetamask()
-  }
+  useEffect(() => {
+    const fetchSupplyStats = async () => {
+      const web3 = window.web3
+      try {
+        if (web3) {
+          const contract = new web3.eth.Contract(abi, address)
+          // console.log(contract.methods, '--------methids--------')
+          const totalSupply = await contract.methods.totalSupply().call()
+          const MAX_EAGLES = await contract.methods.MAX_KOALAS().call()
+          setStats({ totalSupply, MAX_EAGLES })
+        }
+      } catch (error) {
+        console.log('error at contract end', error)
+        toast.error(error.message || DEFAULT_ERROR_MESSAGE)
+      }
+    }
 
-  const handleWalletConnect = () => {
-    setEthAddress('')
-    walletConnectInit()
-  }
+    if (ethAddress || ethAddressWC) fetchSupplyStats()
+  }, [ethAddress, ethAddressWC])
 
   return (
     <>
@@ -100,7 +118,7 @@ const Mint = () => {
           gridTemplateColumns: ['1fr', '1fr 6fr 1fr']
         }}
       >
-        <NavSection />
+        <NavSection supplyStats={supplyStats} />
         <Box
           id='koalas'
           sx={{
@@ -126,7 +144,7 @@ const Mint = () => {
                 <br />A friend of mine lost his job in the mint factory... His
                 wife went absolutely menthol 🤣
               </Text>
-              <MintWidget />
+              <MintWidget ethAddress={ethAddress || ethAddressWC} />
             </Box>
             <Box
               sx={{
@@ -147,7 +165,13 @@ const Mint = () => {
             </Box>
           </Flex>
         </Box>
-        <SecondarySection />
+        <SecondarySection
+          showConnectWallet
+          ethAddress={ethAddress}
+          ethAddressWC={ethAddressWC}
+          handleMetamaskConnect={handleMetamaskConnect}
+          handleWalletConnect={handleWalletConnect}
+        />
       </Box>
     </>
   )

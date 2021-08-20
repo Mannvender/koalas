@@ -17,7 +17,6 @@ export const Container = styled(Box)`
     `};
 `
 export const LinkInternal = ({ href, children, active, ...rest }) => {
-  console.log(active, '-------------')
   return (
     <Container active={active} {...rest}>
       <Link href={href}>{children}</Link>

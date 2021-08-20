@@ -8,9 +8,7 @@ const ArrowNavigator = () => {
   const { pathname, push } = useRouter()
   const currentIndex = AVAILABLE_PATHS.indexOf(pathname)
   const numOfPaths = AVAILABLE_PATHS.length
-  // console.log(currentIndex)
   const handleUpClick = () => {
-    console.log('up clicked')
     if (currentIndex === 0) push(AVAILABLE_PATHS[numOfPaths - 1])
     else push(AVAILABLE_PATHS[currentIndex - 1])
   }

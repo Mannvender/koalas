@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box, Flex } from 'rebass'
+import { Box, Flex, Text } from 'rebass'
 import { useTheme } from 'styled-components'
 import { GiKoala, GiHamburgerMenu } from 'react-icons/gi'
 import { useRouter } from 'next/router'
 
 import { LinkInternal as NavLink } from './Links'
 
-const NavSection = () => {
+const NavSection = ({ supplyStats }) => {
   const { colors } = useTheme()
   const { pathname } = useRouter()
   return (
@@ -56,7 +56,14 @@ const NavSection = () => {
           borderTop: `1px solid ${colors.dark2}`
         }}
       >
-        <GiHamburgerMenu size='48px' />
+        {supplyStats?.totalSupply && (
+          <Text fontSize={[1]} textAlign='center'>
+            {((supplyStats.totalSupply / supplyStats.MAX_EAGLES) * 100).toFixed(
+              2
+            )}
+            % Sold
+          </Text>
+        )}
       </Flex>
     </Box>
   )

@@ -25,6 +25,9 @@ export default () => {
           color: ${Theme.colors.light1};
           margin-bottom: 32px;
         }
+        .gray-filter {
+          filter: grayscale(1);
+        }
     `}
     </style>
   )
