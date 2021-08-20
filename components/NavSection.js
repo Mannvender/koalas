@@ -40,8 +40,8 @@ const NavSection = ({ supplyStats }) => {
           Join
         </NavLink>
         <NavLink
-          href='#'
-          active={pathname === '/faq'}
+          href='/faqs#faqs'
+          active={pathname === '/faqs'}
           style={{ color: 'black' }}
           mb={[4]}
         >

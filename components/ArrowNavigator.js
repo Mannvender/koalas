@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
 
-const AVAILABLE_PATHS = ['/', '/mint']
+const AVAILABLE_PATHS = ['/', '/mint', '/faqs']
 
 const ArrowNavigator = () => {
   const { pathname, push } = useRouter()

@@ -26,6 +26,7 @@ const SecondarySection = ({
       }}
     >
       <Flex
+        id='contact'
         flexDirection='column'
         alignItems='center'
         justifyContent='center'

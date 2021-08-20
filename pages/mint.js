@@ -83,7 +83,11 @@ const Mint = () => {
       }
     } catch (err) {
       console.log('Error while connecting to Wallet Connect : ', err)
-      toast.error(err?.message || DEFAULT_ERROR_MESSAGE)
+      if (err?.message?.includes('User closed modal'))
+        toast.error(
+          'Please keep the modal open while your wallet is connecting.'
+        )
+      else toast.error(err?.message || DEFAULT_ERROR_MESSAGE)
     }
   }
 

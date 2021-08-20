@@ -10,7 +10,7 @@ import CircularButton from './CircularButton'
 import { address, abi, price } from '../smartContract'
 import { DEFAULT_ERROR_MESSAGE } from '../messages'
 
-const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)`
   background-repeat: no-repeat;
   background-position: center center;
   @media (min-width: 1024px) {
