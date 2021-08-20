@@ -126,7 +126,7 @@ const Mint = () => {
       >
         <NavSection supplyStats={supplyStats} />
         <Box
-          id='koalas'
+          id='mint'
           sx={{
             maxHeight: ['auto', '100vh'],
             overflowY: 'auto'

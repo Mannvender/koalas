@@ -13,7 +13,9 @@ import { DEFAULT_ERROR_MESSAGE } from '../messages'
 const StyledBox = styled(Box)`
   background-repeat: no-repeat;
   background-position: center center;
-  border: 1px solid ${({ theme }) => theme.colors.accent1};
+  @media (min-width: 1024px) {
+    border: 1px solid ${({ theme }) => theme.colors.accent1};
+  }
 `
 
 const MintWidget = ({ ethAddress }) => {
@@ -68,9 +70,9 @@ const MintWidget = ({ ethAddress }) => {
   }
 
   return (
-    <StyledBox p={[2, 3]} mb={[5]}>
+    <StyledBox p={[0, 3]} mb={[5]}>
       <Box my={[1]}>
-        <Label htmlFor='mint_amount'>Amount</Label>
+        <Label htmlFor='mint_amount'>How many koalas?</Label>
       </Box>
       <Box
         sx={{

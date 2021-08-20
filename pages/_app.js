@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
-      <ToastContainer position='top-center' />
+      <ToastContainer position='top-center' hideProgressBar={true} />
     </ThemeProvider>
   )
 }
