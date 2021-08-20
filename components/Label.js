@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export default styled.label`
   font-size: 1.2rem;
-  color: rgb(143, 143, 143);
-`;
+  color: ${(props) => props.theme.colors.light1};
+`

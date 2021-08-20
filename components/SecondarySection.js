@@ -5,6 +5,7 @@ import { useTheme } from 'styled-components'
 import { LinkExternal as Link } from './Links'
 import ArrowNavigator from './ArrowNavigator'
 import ConnectWallet from './ConnectWallet'
+import { isMobile } from 'react-device-detect'
 
 const SecondarySection = ({
   ethAddress,
@@ -16,7 +17,8 @@ const SecondarySection = ({
   const { colors } = useTheme()
 
   return (
-    <Box
+    <Flex
+      flexDirection={['column-reverse', 'column']}
       sx={{
         height: '100vh',
         borderLeft: `1px solid ${colors.dark2}`,
@@ -29,7 +31,8 @@ const SecondarySection = ({
         justifyContent='center'
         height='50%'
         sx={{
-          borderBottom: `1px solid ${colors.dark2}`
+          borderBottom: `1px solid ${colors.dark2}`,
+          borderTop: `1px solid ${colors.dark2}`
         }}
       >
         <Link
@@ -69,7 +72,8 @@ const SecondarySection = ({
         justifyContent='center'
         height='20%'
         sx={{
-          borderTop: `1px solid ${colors.dark2}`
+          borderTop: ['none', `1px solid ${colors.dark2}`],
+          borderBottom: `1px solid ${colors.dark2}`
         }}
         id='connect-wallet'
       >
@@ -82,7 +86,7 @@ const SecondarySection = ({
           />
         )}
       </Flex>
-    </Box>
+    </Flex>
   )
 }
 
