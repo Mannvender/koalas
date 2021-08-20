@@ -52,7 +52,10 @@ const Mint = () => {
         }
       }
       window.web3.eth.getAccounts().then((ethAddresses) => {
-        if (ethAddresses[0]) setEthAddress(ethAddresses[0])
+        if (ethAddresses[0]) {
+          setEthAddress(ethAddresses[0])
+          toast.success('Metamask connected successfully.')
+        }
       })
     } else {
       toast.error('Install Metamask extension and try again.')
@@ -74,7 +77,10 @@ const Mint = () => {
       window.web3 = web3
       const ethAddresses = await web3.eth.getAccounts()
       // console.log('Wallet connect addresses found: ', ethAddresses)
-      if (ethAddresses[0]) setEthAddressWC(ethAddresses[0])
+      if (ethAddresses[0]) {
+        setEthAddressWC(ethAddresses[0])
+        toast.success('Wallet connected successfully.')
+      }
     } catch (err) {
       console.log('Error while connecting to Wallet Connect : ', err)
       toast.error(err?.message || DEFAULT_ERROR_MESSAGE)
