@@ -1,82 +1,84 @@
-import React, { useEffect } from 'react'
-import { Box, Flex } from 'rebass'
-import { useTheme } from 'styled-components'
+import React, { useEffect } from "react";
+import { Box, Flex } from "rebass";
+import { useTheme } from "styled-components";
 
-import { LinkExternal as Link } from './Links'
-import ArrowNavigator from './ArrowNavigator'
-import ConnectWallet from './ConnectWallet'
-import { isMobile } from 'react-device-detect'
+import { LinkExternal as Link } from "./Links";
+import ArrowNavigator from "./ArrowNavigator";
+import ConnectWallet from "./ConnectWallet";
+import { isMobile } from "react-device-detect";
 
 const SecondarySection = ({
   ethAddress,
   ethAddressWC,
   handleMetamaskConnect,
   handleWalletConnect,
-  showConnectWallet
+  showConnectWallet,
 }) => {
-  const { colors } = useTheme()
+  const { colors } = useTheme();
 
   return (
     <Flex
-      flexDirection={['column-reverse', 'column']}
+      flexDirection={["column-reverse", "column"]}
       sx={{
-        height: '100vh',
-        borderLeft: `1px solid ${colors.dark2}`,
-        borderTop: `1px solid ${colors.dark2}`
+        height: "100vh",
+        borderLeft: `1px solid ${colors.dark}`,
+        borderTop: `1px solid ${colors.dark}`,
       }}
     >
       <Flex
-        id='contact'
-        flexDirection='column'
-        alignItems='center'
-        justifyContent='center'
-        height='50%'
+        id="contact"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        height="50%"
         sx={{
-          borderBottom: `1px solid ${colors.dark2}`,
-          borderTop: `1px solid ${colors.dark2}`
+          borderBottom: `1px solid ${colors.dark}`,
+          borderTop: `1px solid ${colors.dark}`,
         }}
       >
         <Link
-          href='https://twitter.com'
-          target='_blank'
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
           sx={{
-            writingMode: 'vertical-rl',
-            textOrientation: 'mixed',
-            marginBottom: '2rem'
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
+            marginBottom: "2rem",
           }}
         >
           Twitter
         </Link>
         <Link
-          href='https://discord.com/invite/drV5a2vYTV'
-          target='_blank'
+          href="https://discord.com/invite/drV5a2vYTV"
+          target="_blank"
+          rel="noopener noreferrer"
           sx={{
-            writingMode: 'vertical-rl',
-            textOrientation: 'mixed',
-            marginBottom: '2rem'
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
+            marginBottom: "2rem",
           }}
         >
           Discord
         </Link>
       </Flex>
       <Flex
-        alignItems='center'
-        justifyContent='center'
-        flexDirection='column'
-        height='30%'
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+        height="30%"
         sx={{ color: colors.light2 }}
       >
         <ArrowNavigator />
       </Flex>
       <Flex
-        alignItems='center'
-        justifyContent='center'
-        height='20%'
+        alignItems="center"
+        justifyContent="center"
+        height="20%"
         sx={{
-          borderTop: ['none', `1px solid ${colors.dark2}`],
-          borderBottom: `1px solid ${colors.dark2}`
+          borderTop: ["none", `1px solid ${colors.dark}`],
+          borderBottom: `1px solid ${colors.dark}`,
         }}
-        id='connect-wallet'
+        id="connect-wallet"
       >
         {showConnectWallet && (
           <ConnectWallet
@@ -88,7 +90,7 @@ const SecondarySection = ({
         )}
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
-export default SecondarySection
+export default SecondarySection;
