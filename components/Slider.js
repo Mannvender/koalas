@@ -52,8 +52,8 @@ const Slider = () => {
     <SlickSlider {...settings}>
       {URLS.map((number) => (
         <Image
-          height="250px"
-          width="250px"
+          height="300px"
+          width="300px"
           src={`/koala_${number}.png`}
           alt={`koala ${number}`}
           quality="70"
@@ -67,8 +67,9 @@ const Slider = () => {
 export default Slider;
 
 const settings = {
-  slidesToShow: 3,
+  slidesToShow: 4,
   centerMode: true,
+  centerPadding: "56px",
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 400,
