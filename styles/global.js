@@ -1,5 +1,5 @@
-import React from 'react'
-import Theme from './theme'
+import React from "react";
+import Theme from "./theme";
 
 export default () => {
   return (
@@ -31,7 +31,25 @@ export default () => {
         .gray-filter {
           filter: grayscale(1);
         }
+
+        /* Works on Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: ${Theme.colors.dark2} ${Theme.colors.dark};
+        }
+        /* Works on Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+            width: 12px;
+        }
+        *::-webkit-scrollbar-track {
+            background: ${Theme.colors.dark};
+        }
+        *::-webkit-scrollbar-thumb {
+            background-color: ${Theme.colors.dark2};
+            border-radius: 20px;
+            border: 3px solid ${Theme.colors.dark};
+        }
     `}
     </style>
-  )
-}
+  );
+};
