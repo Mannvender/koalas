@@ -38,8 +38,6 @@ const Faqs = () => {
   };
 
   return (
-    // <>
-    // </>
     <>
       <Box
         sx={{
@@ -98,6 +96,7 @@ const Faqs = () => {
                         border={`solid 1px ${
                           category === tag ? colors.primary : colors.light2
                         }`}
+                        color={category === tag ? colors.dark : colors.light2}
                         cursor="pointer"
                         mr={[3]}
                         key={i}
