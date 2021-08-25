@@ -1,41 +1,41 @@
-import React, { useState } from 'react'
-import { Box, Heading, Text, Flex } from 'rebass'
-import styled, { useTheme } from 'styled-components'
-import { BsBoxArrowUpRight } from 'react-icons/bs'
+import React, { useState } from "react";
+import { Box, Heading, Text, Flex } from "rebass";
+import styled, { useTheme } from "styled-components";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 
-import SearchInput from '../components/SearchInput'
-import Badge from '../components/Badge'
-import { LinkInternal as LinkBase } from '../components/Links'
-import NavSection from '../components/NavSection'
-import SecondarySection from '../components/SecondarySection'
-import { FAQS } from '../messages'
+import SearchInput from "../components/SearchInput";
+import Badge from "../components/Badge";
+import { LinkInternal as LinkBase } from "../components/Links";
+import NavSection from "../components/NavSection";
+import SecondarySection from "../components/SecondarySection";
+import { FAQS } from "../messages";
 
 const TagContainer = styled(Box)`
   border-bottom: 1px solid ${(props) => props.theme.colors.light2};
-`
+`;
 const QuestionContainer = styled(Flex)`
   font-weight: 300;
   background-color: ${({ theme }) => theme.colors.dark};
-`
+`;
 const Link = styled(LinkBase)`
   &:hover {
     color: gray;
   }
-`
-export const TAGS = ['Minting', 'Technical', 'Team/Devs']
+`;
+export const TAGS = ["Minting", "Technical", "Team/Devs"];
 const Faqs = () => {
-  const { colors, fonts } = useTheme()
-  const [category, setCategory] = useState('')
-  const [query, setQuery] = useState('')
+  const { colors, fonts } = useTheme();
+  const [category, setCategory] = useState("");
+  const [query, setQuery] = useState("");
 
   const handleTagClick = (tag) => {
-    if (tag === category) setCategory('')
-    else setCategory(tag)
-  }
+    if (tag === category) setCategory("");
+    else setCategory(tag);
+  };
   const handleSearchInputChange = (e) => {
-    const val = e.target.value
-    setQuery(val)
-  }
+    const val = e.target.value;
+    setQuery(val);
+  };
 
   return (
     // <>
@@ -43,25 +43,25 @@ const Faqs = () => {
     <>
       <Box
         sx={{
-          display: 'grid',
-          gridTemplateColumns: ['1fr', '1fr 6fr 1fr']
+          display: "grid",
+          gridTemplateColumns: ["1fr", "1fr 6fr 1fr"],
         }}
       >
         <NavSection />
         <Box
-          id='faqs'
+          id="faqs"
           sx={{
-            maxHeight: ['auto', '100vh'],
-            overflowY: 'auto'
+            maxHeight: ["auto", "100vh"],
+            overflowY: "auto",
           }}
         >
-          <Flex flexDirection={['column', 'row']}>
-            <Box px={[5]} pt={[5]} sx={{ flexBasis: '100%' }}>
+          <Flex flexDirection={["column", "row"]}>
+            <Box px={[5]} pt={[5]} sx={{ flexBasis: "100%" }}>
               <Heading
                 fontSize={[6, 8]}
-                fontWeight={[400]}
+                fontWeight={[900]}
                 sx={{
-                  color: colors.light
+                  color: colors.light,
                 }}
                 mb={[3]}
               >
@@ -72,11 +72,11 @@ const Faqs = () => {
               </Text>
               <Box
                 sx={{
-                  mb: [5]
+                  mb: [5],
                 }}
               >
                 <SearchInput
-                  placeholder='Ask us anything'
+                  placeholder="Ask us anything"
                   style={{ fontWeight: 300 }}
                   onChange={handleSearchInputChange}
                   value={query}
@@ -84,21 +84,21 @@ const Faqs = () => {
                 <TagContainer mb={[4]}>
                   <Heading
                     fontSize={[2, 3]}
-                    fontFamily={fonts.body + ' !important'}
+                    fontFamily={fonts.body + " !important"}
                     my={[2]}
                   >
                     Find FAQs on
                   </Heading>
-                  <Flex flexWrap='wrap' mb={[3]}>
+                  <Flex flexWrap="wrap" mb={[3]}>
                     {TAGS.map((tag, i) => (
                       <Badge
                         bgColor={
-                          category === tag ? colors.accent1 : 'transparent'
+                          category === tag ? colors.primary : "transparent"
                         }
                         border={`solid 1px ${
-                          category === tag ? colors.accent1 : colors.light2
+                          category === tag ? colors.primary : colors.light2
                         }`}
-                        cursor='pointer'
+                        cursor="pointer"
                         mr={[3]}
                         key={i}
                         onClick={() => handleTagClick(tag)}
@@ -110,13 +110,13 @@ const Faqs = () => {
                 </TagContainer>
                 <Heading
                   fontSize={[2, 3]}
-                  fontFamily={fonts.body + ' !important'}
+                  fontFamily={fonts.body + " !important"}
                   mt={[2]}
                   mb={[3]}
                 >
                   Popular Questions
                 </Heading>
-                <QuestionContainer p={[2, 3]} flexDirection='column' mb={[5]}>
+                <QuestionContainer p={[2, 3]} flexDirection="column" mb={[5]}>
                   {FAQS.filter((faq) =>
                     faq.ques
                       .toLocaleLowerCase()
@@ -124,19 +124,19 @@ const Faqs = () => {
                   )
                     .filter((faq) => faq.tags.includes(category) || !category)
                     .map((faq) => (
-                      <Link href={'/faq/' + faq.id} key={faq.id} mb={[2]}>
+                      <Link href={"/faq/" + faq.id} key={faq.id} mb={[2]}>
                         {faq.ques}
                       </Link>
                     ))}
                 </QuestionContainer>
-                <Flex flexWrap='wrap'>
-                  <Text color='darkGray' marginRight={[2]}>
+                <Flex flexWrap="wrap">
+                  <Text color="darkGray" marginRight={[2]}>
                     Can’t find what you need? Get in touch with us.
                   </Text>
-                  <Link href='/faqs#contact'>
+                  <Link href="/faqs#contact">
                     <BsBoxArrowUpRight
-                      height='16px'
-                      style={{ cursor: 'pointer' }}
+                      height="16px"
+                      style={{ cursor: "pointer" }}
                     />
                   </Link>
                 </Flex>
@@ -147,7 +147,7 @@ const Faqs = () => {
         <SecondarySection />
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default Faqs
+export default Faqs;

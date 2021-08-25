@@ -47,25 +47,9 @@ const URLS = [
   "042",
   "043",
 ];
-const BG_COLORS = [
-  "#daff5c",
-  "#605cff",
-  "#fff700",
-  "#00a1ff",
-  "#af0000",
-  "#5cff96",
-  "#605cff",
-  "#fff700",
-  "#605cff",
-  "#5e5b0b",
-  "#ff5c82",
-  "#daff5c",
-  "#5cff96",
-];
-const Slider = ({ afterChange }) => {
-  const handleChange = (i) => afterChange(BG_COLORS[i]);
+const Slider = () => {
   return (
-    <SlickSlider afterChange={handleChange} {...settings}>
+    <SlickSlider {...settings}>
       {URLS.map((number) => (
         <Image
           height="250px"

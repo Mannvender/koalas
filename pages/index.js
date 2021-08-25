@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Heading, Text, Flex } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Image from "next/image";
@@ -8,37 +8,18 @@ import SecondarySection from "../components/SecondarySection";
 import Slider from "../components/Slider";
 import { ROADMAP, MINT_DATE, DATE_OPTIONS } from "../messages";
 
-const BgGradient = styled(Box)`
-  @media (min-width: 1024px) {
-    :before {
-      content: "";
-      background-size: cover;
-      position: absolute;
-      top: 0%;
-      bottom: 0px;
-      right: 12.5%;
-      left: 12.5%;
-      background-image: radial-gradient(
-        at 0% 100%,
-        ${(props) => props.color} 0,
-        transparent 60%
-      );
-      opacity: 0.75;
-    }
-  }
-`;
 const Banner = styled(Flex)`
   background-image: url("/banner.png");
   background-repeat: no-repeat;
   background-size: cover;
 `;
+const StrokedHeading = styled(Heading)`
+  text-stroke: 1.5px ${(props) => props.theme.colors.light};
+  -webkit-text-stroke: 1.5px ${(props) => props.theme.colors.light};
+`;
 
 const Index = () => {
-  const [gradientColor, setGradientColor] = useState("");
   const { colors, fonts } = useTheme();
-  const handleSliderChange = (color) => {
-    setGradientColor(color);
-  };
 
   return (
     <>
@@ -49,13 +30,16 @@ const Index = () => {
         }}
       >
         <NavSection />
-        <Box sx={{ overflowY: ["auto"], maxHeight: ["auto", "100vh"] }}>
+        <Box
+          id="koalas"
+          sx={{ overflowY: ["auto"], maxHeight: ["auto", "100vh"] }}
+        >
           <Banner
             sx={{ height: ["100vh"] }}
             alignItems="center"
             justifyContent="center"
           >
-            <Heading
+            <StrokedHeading
               fontSize={[6, 8]}
               fontWeight={[900]}
               sx={{
@@ -63,7 +47,7 @@ const Index = () => {
               }}
             >
               Kool Koalas
-            </Heading>
+            </StrokedHeading>
           </Banner>
           <Box my={[5, 6]} sx={{ textAlign: ["center", "left"] }}>
             <Heading
@@ -75,7 +59,7 @@ const Index = () => {
             >
               Sneak Peak
             </Heading>
-            <Slider afterChange={handleSliderChange} />
+            <Slider />
           </Box>
           <Heading
             fontSize={[6]}
@@ -188,8 +172,8 @@ const Index = () => {
               Roadmap
             </Heading>
             <Box px={[5]} mb={[6]}>
-              {ROADMAP.map((step) => (
-                <Flex mb={[3]}>
+              {ROADMAP.map((step, i) => (
+                <Flex mb={[3]} key={i}>
                   <Text color={colors.primary} sx={{ width: "72px" }}>
                     {step.when}
                   </Text>
@@ -208,7 +192,7 @@ const Index = () => {
             >
               Mint?
             </Heading>
-            <Text px={[5]} mb={[6]}>
+            <Text px={[5]} mb={[6]} color={colors.primary}>
               On <br />
               {MINT_DATE.toLocaleDateString(undefined, DATE_OPTIONS)}
               <br />
@@ -216,54 +200,6 @@ const Index = () => {
             </Text>
           </section>
         </Box>
-        {/* <BgGradient
-          color={gradientColor}
-          id="koalas"
-          sx={{
-            maxHeight: ["auto", "100vh"],
-            overflowY: "auto",
-          }}
-        >
-          <Flex flexDirection={["column", "row"]}>
-            <Box px={[5]} pt={[5]} sx={{ flexBasis: "65%" }}>
-              <Heading
-                fontSize={[6, 8]}
-                fontWeight={[400]}
-                sx={{
-                  color: colors.light,
-                }}
-                mb={[3, 5]}
-              >
-                Kool Koalas
-              </Heading>
-              <Text mb={[5]} sx={{ color: colors.light1 }}>
-                Kool Koalas are best friends of humans. They have survived
-                wildest of wild fires, they can definitely beat NFT game. Are
-                you ready to be a Kool Koala?
-              </Text>
-              <Box mb={[5, 2]} sx={{ textAlign: ["center", "left"] }}>
-                <Slider afterChange={handleSliderChange} />
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                position: "relative",
-                height: "100vh",
-                flexBasis: "35%",
-                display: ["none", "unset"],
-              }}
-            >
-              <Image
-                layout="fill"
-                objectFit="cover"
-                objectPosition="0% 30%"
-                src="/koala_transparent.png"
-                alt="banner"
-                quality="70"
-              />
-            </Box>
-          </Flex>
-        </BgGradient> */}
         <SecondarySection />
       </Box>
     </>

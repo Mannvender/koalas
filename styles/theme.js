@@ -6,7 +6,6 @@ export default {
   },
   colors: {
     primary: primaryColor,
-    accent1: "#F2D479",
     dark: "#212121",
     dark1: "#363636",
     dark2: "#9FA3A6",
