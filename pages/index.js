@@ -15,8 +15,8 @@ const Banner = styled(Flex)`
   background-size: cover;
 `;
 const StrokedHeading = styled(Heading)`
-  text-stroke: 1.5px ${(props) => props.theme.colors.light};
-  -webkit-text-stroke: 1.5px ${(props) => props.theme.colors.light};
+  text-stroke: 1px ${(props) => props.theme.colors.light};
+  -webkit-text-stroke: 1px ${(props) => props.theme.colors.light};
 `;
 
 const Index = () => {

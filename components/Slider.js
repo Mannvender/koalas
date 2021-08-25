@@ -71,7 +71,7 @@ const settings = {
   centerMode: true,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 400,
   arrows: false,
   infinite: true,
   responsive: [
