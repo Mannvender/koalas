@@ -35,22 +35,7 @@ const Index = () => {
           id="koalas"
           sx={{ overflowY: ["unset", "auto"], maxHeight: ["auto", "100vh"] }}
         >
-          {isMobile ? (
-            sections
-          ) : (
-            <Swiper
-              slides={[
-                <BannerSection />,
-                <CarouselSection />,
-                <FeatureSection features={FEATURES} />,
-                <RoadmapSection roadmap={ROADMAP} />,
-                <LaunchInfoSection
-                  mintDate={MINT_DATE}
-                  dateOptions={DATE_OPTIONS}
-                />,
-              ]}
-            />
-          )}
+          {isMobile ? sections : <Swiper slides={sections} />}
         </Box>
         <SecondarySection />
       </Box>
