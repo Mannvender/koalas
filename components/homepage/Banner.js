@@ -23,6 +23,8 @@ const BannerSection = () => {
       role="region"
       aria-label="Banner"
     >
+      Elit ad non qui adipisicing labore ullamco culpa excepteur magna quis aute
+      excepteur voluptate deserunt.
       <StrokedHeading
         fontSize={[6, 8]}
         fontWeight={[900]}
