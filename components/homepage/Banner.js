@@ -7,9 +7,9 @@ const Banner = styled(Flex)`
   background-repeat: no-repeat;
   background-size: cover;
 `;
-const StrokedHeading = styled(Heading)`
-  text-stroke: 1px ${(props) => props.theme.colors.light};
-  -webkit-text-stroke: 1px ${(props) => props.theme.colors.light};
+export const StrokedHeading = styled(Heading)`
+  text-stroke: 1px ${(props) => props.strokeColor};
+  -webkit-text-stroke: 1px ${(props) => props.strokeColor};
 `;
 
 const BannerSection = () => {
@@ -31,6 +31,7 @@ const BannerSection = () => {
             color: colors.dark,
           }}
           width={["200px", "auto"]}
+          strokeColor={colors.light}
         >
           Kool Koalas
         </StrokedHeading>

@@ -6,9 +6,9 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import Label from "./Label";
 import Input from "./Input";
-import CircularButton from "./CircularButton";
-import { address, abi, price } from "../smartContract";
-import { DEFAULT_ERROR_MESSAGE } from "../messages";
+import Button from "./RectangularButton";
+import { address, abi, price } from "smartContract";
+import { DEFAULT_ERROR_MESSAGE } from "messages";
 
 export const StyledBox = styled(Box)`
   background-repeat: no-repeat;
@@ -70,8 +70,8 @@ const MintWidget = ({ ethAddress }) => {
   };
 
   return (
-    <StyledBox p={[0, 3]} mb={[5]}>
-      <Box my={[1]}>
+    <StyledBox p={[0, 3]}>
+      <Box my={[1]} textAlign="center">
         <Label htmlFor="mint_amount">How many koalas?</Label>
       </Box>
       <Box
@@ -93,11 +93,9 @@ const MintWidget = ({ ethAddress }) => {
           onChange={handleChange}
         />
       </Box>
-      <Flex justifyContent="flex-end">
-        <CircularButton onClick={handleClick} disabled={!Boolean(amount)}>
-          Mint
-        </CircularButton>
-      </Flex>
+      <Button onClick={handleClick} disabled={!Boolean(amount)}>
+        Mint
+      </Button>
     </StyledBox>
   );
 };

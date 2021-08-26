@@ -4,12 +4,12 @@ import { useTheme } from "styled-components";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
-import Image from "next/image";
-import NavSection from "../components/NavSection";
-import SecondarySection from "../components/SecondarySection";
-import MintWidget from "../components/MintWidget";
-import { address, abi } from "../smartContract";
-import { DEFAULT_ERROR_MESSAGE } from "../messages";
+import NavSection from "components/NavSection";
+import SecondarySection from "components/SecondarySection";
+import MintWidget from "components/MintWidget";
+import { address, abi } from "smartContract";
+import { DEFAULT_ERROR_MESSAGE } from "messages";
+import { StrokedHeading } from "components/homepage/Banner";
 
 const walletConnKeyLS = "wallet_permission";
 
@@ -129,52 +129,37 @@ const Mint = () => {
         }}
       >
         <NavSection supplyStats={supplyStats} />
-        <Box
+        <Flex
           id="mint"
+          height={["100vh"]}
           sx={{
-            maxHeight: ["auto", "100vh"],
             overflowY: "auto",
           }}
+          alignItems="center"
+          justifyContent="center"
         >
-          <Flex flexDirection={["column", "row"]}>
-            <Box px={[5]} pt={[5]} sx={{ flexBasis: "65%" }}>
-              <Heading
-                fontSize={[6, 8]}
-                fontWeight={[900]}
-                sx={{
-                  color: colors.light,
-                }}
-                mb={[3, 5]}
-              >
-                Join Us
-              </Heading>
-              <Text mb={[5]} sx={{ color: colors.light1 }}>
-                Koala approved Dad Joke:
-                <br />
-                <br />A friend of mine lost his job in the mint factory... His
-                wife went absolutely menthol 🤣
-              </Text>
-              <MintWidget ethAddress={ethAddress || ethAddressWC} />
-            </Box>
-            <Box
+          <Box px={[5]}>
+            <StrokedHeading
+              textAlign={["center"]}
+              fontSize={[6, 8]}
+              fontWeight={[900]}
               sx={{
-                position: "relative",
-                height: "100vh",
-                flexBasis: "35%",
-                display: ["none", "unset"],
+                color: colors.light,
               }}
+              mb={[3, 5]}
+              strokeColor={colors.primary}
             >
-              <Image
-                layout="fill"
-                objectFit="cover"
-                objectPosition="0% 30%"
-                src="/koala_transparent.png"
-                alt="banner"
-                quality="70"
-              />
-            </Box>
-          </Flex>
-        </Box>
+              Join Us
+            </StrokedHeading>
+            <Text mb={[5]} textAlign={["center"]} sx={{ color: colors.light1 }}>
+              {/* Koala pun:
+              <br />
+              <br /> */}
+              Get some koality NFTs eating eaucylptus on top of trees
+            </Text>
+            <MintWidget ethAddress={ethAddress || ethAddressWC} />
+          </Box>
+        </Flex>
         <SecondarySection
           showConnectWallet
           ethAddress={ethAddress}
