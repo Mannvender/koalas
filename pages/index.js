@@ -13,14 +13,14 @@ import LaunchInfoSection from "components/homepage/Launch";
 const Swiper = dynamic(() => import("components/homepage/Swiper"));
 import { FEATURES, ROADMAP, MINT_DATE, DATE_OPTIONS } from "../messages";
 
+const sections = [
+  <BannerSection />,
+  <CarouselSection />,
+  <FeatureSection features={FEATURES} />,
+  <RoadmapSection roadmap={ROADMAP} />,
+  <LaunchInfoSection mintDate={MINT_DATE} dateOptions={DATE_OPTIONS} />,
+];
 const Index = () => {
-  const sections = [
-    <BannerSection />,
-    <CarouselSection />,
-    <FeatureSection features={FEATURES} />,
-    <RoadmapSection roadmap={ROADMAP} />,
-    <LaunchInfoSection mintDate={MINT_DATE} dateOptions={DATE_OPTIONS} />,
-  ];
   return (
     <>
       <Box
@@ -34,8 +34,7 @@ const Index = () => {
           id="koalas"
           sx={{ overflowY: ["unset", "auto"], maxHeight: ["auto", "100vh"] }}
         >
-          <Swiper slides={sections} />
-          {isMobile && sections}
+          {isMobile ? sections : <Swiper slides={sections} />}
         </Box>
         <SecondarySection />
       </Box>

@@ -49,6 +49,14 @@ export default () => {
             border-radius: 20px;
             border: 3px solid ${Theme.colors.dark};
         }
+        .swiper {
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background-image: url(/banner.png);
+        }
         @media (min-width: 1024px) {
           .swiper {
             width: 100%;
