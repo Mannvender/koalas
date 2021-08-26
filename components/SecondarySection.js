@@ -37,7 +37,7 @@ const SecondarySection = ({
         }}
       >
         <Link
-          href="https://twitter.com"
+          href="https://twitter.com/KaptainKoala99"
           target="_blank"
           rel="noopener noreferrer"
           sx={{
