@@ -14,6 +14,7 @@ const Swiper = dynamic(() => import("components/homepage/Swiper"));
 import { FEATURES, ROADMAP, MINT_DATE, DATE_OPTIONS } from "../messages";
 
 const Index = () => {
+  console.log(isMobile);
   const sections = [
     <BannerSection />,
     <CarouselSection />,
