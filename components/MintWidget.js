@@ -1,4 +1,4 @@
-import { Box, Flex } from "rebass";
+import { Box } from "rebass";
 import { useState } from "react";
 import styled, { useTheme } from "styled-components";
 import { toast } from "react-toastify";

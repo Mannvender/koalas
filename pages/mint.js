@@ -20,7 +20,6 @@ const Mint = () => {
   const { colors } = useTheme();
 
   const handleMetamaskConnect = () => {
-    localStorage.setItem(walletConnKeyLS, "true");
     setEthAddressWC("");
     connectMetamask();
   };
@@ -92,8 +91,7 @@ const Mint = () => {
   };
 
   useEffect(() => {
-    const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
-    if (isWalletPermission) connectMetamask();
+    connectMetamask();
     // cleanup
     return () => {
       window.web3 = undefined;
@@ -146,15 +144,12 @@ const Mint = () => {
               sx={{
                 color: colors.light,
               }}
-              mb={[3, 5]}
+              mb={[3]}
               strokeColor={colors.primary}
             >
               Join Us
             </StrokedHeading>
             <Text mb={[5]} textAlign={["center"]} sx={{ color: colors.light1 }}>
-              {/* Koala pun:
-              <br />
-              <br /> */}
               Get some koality NFTs eating eaucylptus on top of trees
             </Text>
             <MintWidget ethAddress={ethAddress || ethAddressWC} />
