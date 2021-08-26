@@ -53,6 +53,12 @@ export default () => {
           width: 100%;
           height: 100%;
         }
+        .swiper-pagination-bullet {
+          border-radius: 0 !important;
+        }
+        .swiper-pagination-bullet-active{
+          background-color: ${Theme.colors.light1} !important;
+        }
         
     `}
     </style>
