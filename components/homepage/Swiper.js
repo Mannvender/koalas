@@ -13,12 +13,10 @@ const SwiperSection = ({ slides }) => {
     <Swiper
       direction={"vertical"}
       slidesPerView={1}
-      //   spaceBetween={30}
       mousewheel={true}
       pagination={{
         clickable: true,
       }}
-      //   className="mySwiper"
     >
       {slides.map((slide) => (
         <SwiperSlide>{slide}</SwiperSlide>

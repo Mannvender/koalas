@@ -16,27 +16,25 @@ const BannerSection = () => {
   const { colors } = useTheme();
   return (
     <>
-      Elit ad non qui adipisicing labore ullamco culpa excepteur magna quis aute
-      excepteur voluptate deserunt.
-    <Banner
+      <Banner
         height={["100vh"]}
-      width={["100%"]}
-      alignItems="center"
-      justifyContent="center"
-      role="region"
-      aria-label="Banner"
-    >
-      <StrokedHeading
-        fontSize={[6, 8]}
-        fontWeight={[900]}
-        sx={{
-          color: colors.dark,
-        }}
-        width={["200px", "auto"]}
+        width={["100%"]}
+        alignItems="center"
+        justifyContent="center"
+        role="region"
+        aria-label="Banner"
       >
-        Kool Koalas
-      </StrokedHeading>
-    </Banner>
+        <StrokedHeading
+          fontSize={[6, 8]}
+          fontWeight={[900]}
+          sx={{
+            color: colors.dark,
+          }}
+          width={["200px", "auto"]}
+        >
+          Kool Koalas
+        </StrokedHeading>
+      </Banner>
     </>
   );
 };
