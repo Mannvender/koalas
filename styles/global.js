@@ -49,15 +49,17 @@ export default () => {
             border-radius: 20px;
             border: 3px solid ${Theme.colors.dark};
         }
-        .swiper {
-          width: 100%;
-          height: 100%;
-        }
-        .swiper-pagination-bullet {
-          border-radius: 0 !important;
-        }
-        .swiper-pagination-bullet-active{
-          background-color: ${Theme.colors.light1} !important;
+        @media (min-width: 1024px) {
+          .swiper {
+            width: 100%;
+            height: 100%;
+          }
+          .swiper-pagination-bullet {
+            border-radius: 0 !important;
+          }
+          .swiper-pagination-bullet-active{
+            background-color: ${Theme.colors.light1} !important;
+          }
         }
         
     `}
