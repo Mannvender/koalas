@@ -12,6 +12,8 @@ const FeatureSection = ({ features }) => {
       height={["auto", "100vh"]}
       alignItems="center"
       justifyContent="center"
+      role="region"
+      aria-label="Features"
     >
       <Heading
         fontSize={[4, 6]}

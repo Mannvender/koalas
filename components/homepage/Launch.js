@@ -10,6 +10,8 @@ const LaunchInfoSection = ({ mintDate, dateOptions }) => {
       sx={{ backgroundColor: colors.primary }}
       alignItems="center"
       justifyContent="center"
+      role="region"
+      aria-label="Launch Info"
     >
       <Box>
         <Heading
