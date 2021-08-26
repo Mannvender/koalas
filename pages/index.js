@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "rebass";
 import dynamic from "next/dynamic";
+import { isMobile } from "react-device-detect";
 
 import NavSection from "components/NavSection";
 import SecondarySection from "components/SecondarySection";
@@ -34,6 +35,7 @@ const Index = () => {
           sx={{ overflowY: ["unset", "auto"], maxHeight: ["auto", "100vh"] }}
         >
           <Swiper slides={sections} />
+          {isMobile && sections}
         </Box>
         <SecondarySection />
       </Box>
