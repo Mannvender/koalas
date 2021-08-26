@@ -33,7 +33,7 @@ const Index = () => {
         <NavSection />
         <Box
           id="koalas"
-          sx={{ overflowY: ["auto"], maxHeight: ["auto", "100vh"] }}
+          sx={{ overflowY: ["unset", "auto"], maxHeight: ["auto", "100vh"] }}
         >
           {isMobile ? (
             sections
