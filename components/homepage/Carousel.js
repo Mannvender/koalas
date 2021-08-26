@@ -18,7 +18,7 @@ const CarouselSection = () => {
       <Box>
         <Heading
           fontSize={[4, 6]}
-          fontWeight={[400]}
+          fontWeight={[600]}
           fontFamily={fonts.body + " !important"}
           px={[4]}
           pb={[4]}

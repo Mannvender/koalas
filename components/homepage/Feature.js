@@ -17,12 +17,12 @@ const FeatureSection = ({ features }) => {
     >
       <Heading
         fontSize={[4, 6]}
-        fontWeight={[400]}
+        fontWeight={[600]}
         fontFamily={fonts.body + " !important"}
         p={[4]}
         color={colors.dark1}
       >
-        Features
+        Kool Benefits
       </Heading>
       <Flex px={[5]} flexWrap="wrap">
         {features.map((feature, i) => (
