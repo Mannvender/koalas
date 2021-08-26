@@ -46,15 +46,7 @@ const NavSection = ({ supplyStats }) => {
             Koalas
           </NavLink>
           <NavLink href="/mint#mint" active={pathname === "/mint"} mb={[4]}>
-            Join
-          </NavLink>
-          <NavLink
-            href="/faqs#faqs"
-            active={pathname === "/faqs"}
-            style={{ color: "black" }}
-            mb={[4]}
-          >
-            FAQs
+            Mint
           </NavLink>
         </Box>
       </Flex>
