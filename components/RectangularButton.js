@@ -8,11 +8,9 @@ const StyledButton = styled.button`
   width: 100%;
   border: none;
   background-color: ${(props) =>
-    props.disabled ? props.theme.colors.dark2 : props.theme.colors.primary};
-  /* border-radius: 50%; */
-  color: ${(props) => props.theme.colors.dark1};
+    props.disabled ? props.theme.colors.dark2 : props.bgColor};
+  color: ${(props) => props.color};
   cursor: pointer;
-  /* box-shadow: 0 4px 12px ${(props) => props.theme.colors.primary}; */
   font-weight: 600;
   padding: 5px;
   font-size: 1rem;

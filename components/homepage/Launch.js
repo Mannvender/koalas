@@ -1,6 +1,8 @@
 import React from "react";
 import { Heading, Text, Flex, Box } from "rebass";
 import { useTheme } from "styled-components";
+import Button from "components/RectangularButton";
+import { LinkInternal as Link } from "components/Links";
 
 const LaunchInfoSection = ({ mintDate, dateOptions }) => {
   const { fonts, colors } = useTheme();
@@ -31,6 +33,12 @@ const LaunchInfoSection = ({ mintDate, dateOptions }) => {
           <br />
           {mintDate.toLocaleTimeString()}
         </Text>
+
+        <Link href="/mint#mint">
+          <Button color={colors.dark1} bgColor={colors.accent1}>
+            Let's mint
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );

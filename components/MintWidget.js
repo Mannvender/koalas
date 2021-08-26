@@ -93,7 +93,12 @@ const MintWidget = ({ ethAddress }) => {
           onChange={handleChange}
         />
       </Box>
-      <Button onClick={handleClick} disabled={!Boolean(amount)}>
+      <Button
+        color={colors.dark1}
+        bgColor={colors.primary}
+        onClick={handleClick}
+        disabled={!Boolean(amount)}
+      >
         Mint
       </Button>
     </StyledBox>

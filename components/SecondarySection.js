@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { Box, Flex } from "rebass";
+import React from "react";
+import { Flex } from "rebass";
 import { useTheme } from "styled-components";
 
 import { LinkExternal as Link } from "./Links";
 import ArrowNavigator from "./ArrowNavigator";
 import ConnectWallet from "./ConnectWallet";
-import { isMobile } from "react-device-detect";
 
 const SecondarySection = ({
   ethAddress,
