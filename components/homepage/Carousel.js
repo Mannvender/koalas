@@ -1,24 +1,34 @@
 import React from "react";
-import { Heading, Box } from "rebass";
+import { Heading, Box, Flex } from "rebass";
 import { useTheme } from "styled-components";
 
 import Slider from "../Slider";
 
 const CarouselSection = () => {
-  const { fonts } = useTheme();
+  const { fonts, colors } = useTheme();
   return (
-    <Box my={[5, 6]}>
-      <Heading
-        fontSize={[4, 6]}
-        fontWeight={[400]}
-        fontFamily={fonts.body + " !important"}
-        px={[4]}
-        pb={[4]}
-      >
-        Sneak Peak
-      </Heading>
-      <Slider />
-    </Box>
+    <Flex
+      sx={{ height: ["100vh"], backgroundColor: colors.accent1 }}
+      role="region"
+      aria-label="Carousel"
+      alignItems="center"
+      justifyContent="center"
+      textAlign={["center"]}
+    >
+      <Box>
+        <Heading
+          fontSize={[4, 6]}
+          fontWeight={[400]}
+          fontFamily={fonts.body + " !important"}
+          px={[4]}
+          pb={[4]}
+          color={colors.dark1}
+        >
+          Sneak Peak
+        </Heading>
+        <Slider />
+      </Box>
+    </Flex>
   );
 };
 

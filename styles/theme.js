@@ -1,4 +1,4 @@
-const primaryColor = "#F2B705";
+const primaryColor = "#FFC832";
 export default {
   fonts: {
     heading: "Cinzel Decorative, cursive",
@@ -6,6 +6,7 @@ export default {
   },
   colors: {
     primary: primaryColor,
+    accent1: "#668C4A",
     dark: "#212121",
     dark1: "#363636",
     dark2: "#9FA3A6",

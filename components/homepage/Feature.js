@@ -6,17 +6,23 @@ import Image from "next/image";
 const FeatureSection = ({ features }) => {
   const { fonts, colors } = useTheme();
   return (
-    <section>
+    <Flex
+      flexDirection="column"
+      style={{ backgroundColor: colors.primary }}
+      height={["auto", "100vh"]}
+      alignItems="center"
+      justifyContent="center"
+    >
       <Heading
         fontSize={[4, 6]}
         fontWeight={[400]}
         fontFamily={fonts.body + " !important"}
-        px={[4]}
-        pb={[4]}
+        p={[4]}
+        color={colors.dark1}
       >
         Features
       </Heading>
-      <Flex mb={[5, 6]} px={[5]} flexWrap="wrap">
+      <Flex px={[5]} flexWrap="wrap">
         {features.map((feature, i) => (
           <Flex
             key={i}
@@ -40,13 +46,13 @@ const FeatureSection = ({ features }) => {
                 quality="70"
               />
             </Box>
-            <Text mb={[5]} sx={{ color: colors.light1 }} textAlign="center">
+            <Text mb={[5]} sx={{ color: colors.dark1 }} textAlign="center">
               {feature.text}
             </Text>
           </Flex>
         ))}
       </Flex>
-    </section>
+    </Flex>
   );
 };
 

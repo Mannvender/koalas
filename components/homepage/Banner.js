@@ -17,6 +17,7 @@ const BannerSection = () => {
   return (
     <Banner
       sx={{ height: ["100vh"] }}
+      width={["100%"]}
       alignItems="center"
       justifyContent="center"
       role="region"

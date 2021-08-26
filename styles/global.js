@@ -49,6 +49,11 @@ export default () => {
             border-radius: 20px;
             border: 3px solid ${Theme.colors.dark};
         }
+        .swiper {
+          width: 100%;
+          height: 100%;
+        }
+        
     `}
     </style>
   );

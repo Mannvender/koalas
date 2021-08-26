@@ -83,32 +83,32 @@ export const FEATURES = [
   {
     image: {
       src: "/feature_02.png",
-      height: "200px",
-      width: "270px",
+      height: "150px",
+      width: "180px",
     },
     text: "1817 kool koalas hanging on the Etherclyptus trees",
   },
   {
     image: {
       src: "/feature_04.png",
-      height: "200px",
-      width: "270px",
+      height: "150px",
+      width: "190px",
     },
     text: "0.01 ETH + gas",
   },
   {
     image: {
       src: "/feature_01.png",
-      height: "340px",
-      width: "250px",
+      height: "240px",
+      width: "180px",
     },
     text: "Ownership and usage rights",
   },
   {
     image: {
       src: "/feature_03.png",
-      height: "350px",
-      width: "210px",
+      height: "250px",
+      width: "150px",
     },
     text: "Stored on IPFS Pinata",
   },
