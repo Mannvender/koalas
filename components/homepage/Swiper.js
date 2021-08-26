@@ -13,7 +13,7 @@ const SwiperSection = ({ slides }) => {
   return (
     !isMobile && (
       <Swiper
-        modules={[MouseWheel, Pagination]}
+        modules={[Mousewheel, Pagination]}
         direction={"vertical"}
         slidesPerView={1}
         mousewheel={true}
