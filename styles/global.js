@@ -56,6 +56,8 @@ export default () => {
           justify-content: center;
           height: 100vh;
           background-image: url(/banner.png);
+          background-size: contain;
+          background-position: 50%;
         }
         @media (min-width: 1024px) {
           .swiper {
