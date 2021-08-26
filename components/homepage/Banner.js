@@ -15,16 +15,17 @@ const StrokedHeading = styled(Heading)`
 const BannerSection = () => {
   const { colors } = useTheme();
   return (
+    <>
+      Elit ad non qui adipisicing labore ullamco culpa excepteur magna quis aute
+      excepteur voluptate deserunt.
     <Banner
-      sx={{ height: ["100vh"] }}
+        height={["100vh"]}
       width={["100%"]}
       alignItems="center"
       justifyContent="center"
       role="region"
       aria-label="Banner"
     >
-      Elit ad non qui adipisicing labore ullamco culpa excepteur magna quis aute
-      excepteur voluptate deserunt.
       <StrokedHeading
         fontSize={[6, 8]}
         fontWeight={[900]}
@@ -36,6 +37,7 @@ const BannerSection = () => {
         Kool Koalas
       </StrokedHeading>
     </Banner>
+    </>
   );
 };
 
