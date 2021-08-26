@@ -34,8 +34,8 @@ const Index = () => {
           id="koalas"
           sx={{ overflowY: ["unset", "auto"], maxHeight: ["auto", "100vh"] }}
         >
-          {isMobile && <BannerSection />}
-          {isMobile ? sections.shift() : <Swiper slides={sections} />}
+          {isMobile && sections}
+          {!isMobile && <Swiper slides={sections} />}
         </Box>
         <SecondarySection />
       </Box>
