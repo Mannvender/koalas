@@ -134,7 +134,7 @@ const Mint = () => {
             mb={[3]}
             strokeColor={colors.primary}
           >
-            Launching in...
+            Launchin in...
           </StrokedHeading>
           <Flex
             flexDirection="row"
@@ -144,7 +144,7 @@ const Mint = () => {
           >
             <Box mr={[2, 5]}>
               <Heading
-                fontSize={[7, 8]}
+                fontSize={[6, 8]}
                 fontFamily={fonts.body + " !important"}
                 mb={[0]}
                 ml={[2, 0]}
@@ -155,7 +155,7 @@ const Mint = () => {
             </Box>
             <Box mr={[2, 5]}>
               <Heading
-                fontSize={[7, 8]}
+                fontSize={[6, 8]}
                 fontFamily={fonts.body + " !important"}
                 mb={[0]}
                 ml={[2, 0]}
@@ -166,7 +166,7 @@ const Mint = () => {
             </Box>
             <Box mr={[2, 5]}>
               <Heading
-                fontSize={[7, 8]}
+                fontSize={[6, 8]}
                 fontFamily={fonts.body + " !important"}
                 mb={[0]}
                 ml={[2, 0]}
@@ -177,7 +177,7 @@ const Mint = () => {
             </Box>
             <Box>
               <Heading
-                fontSize={[7, 8]}
+                fontSize={[6, 8]}
                 fontFamily={fonts.body + " !important"}
                 mb={[0]}
                 ml={[2, 0]}
