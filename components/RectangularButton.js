@@ -16,7 +16,7 @@ const StyledButton = styled.button`
   font-size: 1rem;
   transition: background-color 0.4s ease-in-out;
   &:hover {
-    color: ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.hoverColor || props.theme.colors.dark};
   }
   @media (min-width: 1024px) {
     font-size: 1.1rem;

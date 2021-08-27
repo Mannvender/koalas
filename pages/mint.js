@@ -150,7 +150,7 @@ const Mint = () => {
               Join Us
             </StrokedHeading>
             <Text mb={[5]} textAlign={["center"]} sx={{ color: colors.light1 }}>
-              Get some koality NFTs eating eaucylptus on top of trees
+              Get some koality NFTs eating eucalyptus on top of trees
             </Text>
             <MintWidget ethAddress={ethAddress || ethAddressWC} />
           </Box>

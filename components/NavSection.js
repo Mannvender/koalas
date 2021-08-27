@@ -3,6 +3,7 @@ import { Box, Flex, Text } from "rebass";
 import styled, { useTheme } from "styled-components";
 import { GiKoala as GiKoalaBase } from "react-icons/gi";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import { LinkInternal as NavLink } from "./Links";
 
@@ -18,15 +19,15 @@ const NavSection = ({ supplyStats }) => {
   return (
     <Box
       sx={{
-        height: ["80vh", "100vh"],
-        borderRight: `1px solid ${colors.dark}`,
-        borderBottom: `1px solid ${colors.dark}`,
+        height: ["60vh", "100vh"],
+        borderRight: [0, `1px solid ${colors.dark}`],
+        borderBottom: [`1px solid ${colors.dark}`, 0],
       }}
     >
       <Flex
         alignItems="center"
         justifyContent="center"
-        height="20%"
+        height={["30%", "20%"]}
         sx={{
           borderBottom: `1px solid ${colors.dark}`,
         }}
@@ -38,14 +39,14 @@ const NavSection = ({ supplyStats }) => {
       <Flex
         justifyContent="center"
         alignItems="center"
-        height="60%"
+        height={["40%", "60%"]}
         flexDirection="column"
       >
         <Box width={["100px"]}>
           <NavLink href="/#koalas" active={pathname === "/"} mb={[4]}>
             Koalas
           </NavLink>
-          <NavLink href="/mint#mint" active={pathname === "/mint"} mb={[4]}>
+          <NavLink href="/mint#mint" active={pathname === "/mint"}>
             Mint
           </NavLink>
         </Box>
@@ -53,7 +54,7 @@ const NavSection = ({ supplyStats }) => {
       <Flex
         alignItems="center"
         justifyContent="center"
-        height="20%"
+        height={["30%", "20%"]}
         sx={{
           borderTop: `1px solid ${colors.dark}`,
         }}
@@ -65,6 +66,16 @@ const NavSection = ({ supplyStats }) => {
             )}
             % Sold
           </Text>
+        )}
+        {!supplyStats && (
+          <Image
+            height="60px"
+            width="60px"
+            src={`/koala_031.png`}
+            alt={`koala 031`}
+            quality="70"
+            className="gray-filter"
+          />
         )}
       </Flex>
     </Box>

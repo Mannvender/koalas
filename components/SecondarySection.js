@@ -20,8 +20,8 @@ const SecondarySection = ({
       flexDirection={["column-reverse", "column"]}
       sx={{
         height: "100vh",
-        borderLeft: `1px solid ${colors.dark}`,
-        borderTop: `1px solid ${colors.dark}`,
+        borderLeft: [0, `1px solid ${colors.dark}`],
+        borderTop: [`1px solid ${colors.dark}`, 0],
       }}
     >
       <Flex
@@ -31,8 +31,8 @@ const SecondarySection = ({
         justifyContent="center"
         height="50%"
         sx={{
-          borderBottom: `1px solid ${colors.dark}`,
-          borderTop: `1px solid ${colors.dark}`,
+          borderBottom: [0, `1px solid ${colors.dark}`],
+          borderTop: [`1px solid ${colors.dark}`, 0],
         }}
       >
         <Link
@@ -75,7 +75,7 @@ const SecondarySection = ({
         height="20%"
         sx={{
           borderTop: ["none", `1px solid ${colors.dark}`],
-          borderBottom: `1px solid ${colors.dark}`,
+          borderBottom: [`1px solid ${colors.dark}`, 0],
         }}
         id="connect-wallet"
       >
@@ -86,6 +86,19 @@ const SecondarySection = ({
             ethAddress={ethAddress}
             ethAddressWC={ethAddressWC}
           />
+        )}
+        {!showConnectWallet && (
+          <Link
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              writingMode: "vertical-rl",
+              textOrientation: "mixed",
+            }}
+          >
+            Hit it
+          </Link>
         )}
       </Flex>
     </Flex>
