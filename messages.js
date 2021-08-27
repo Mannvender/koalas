@@ -17,7 +17,7 @@ export const ROADMAP = [
   },
 ];
 
-export const MINT_DATE = new Date(Date.UTC(2021, 8, 31, 18, 0, 0));
+export const MINT_DATE = new Date("2021-08-31T18:00:00.000+00:00");
 export const DATE_OPTIONS = {
   weekday: "long",
   year: "numeric",

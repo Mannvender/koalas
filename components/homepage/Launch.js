@@ -33,7 +33,6 @@ const LaunchInfoSection = ({ mintDate, dateOptions }) => {
           <br />
           {mintDate.toLocaleTimeString()}
         </Text>
-
         <Link href="/mint#mint">
           <Button color={colors.dark1} bgColor={colors.accent1}>
             Let's mint

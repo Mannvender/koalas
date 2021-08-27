@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, Flex } from "rebass";
+import { Box, Text, Flex, Heading } from "rebass";
 import { useTheme } from "styled-components";
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
+import Countdown, { zeroPad } from "react-countdown";
+
 import NavSection from "components/NavSection";
 import SecondarySection from "components/SecondarySection";
 import MintWidget from "components/MintWidget";
 import { address, abi } from "smartContract";
-import { DEFAULT_ERROR_MESSAGE } from "messages";
+import { DEFAULT_ERROR_MESSAGE, MINT_DATE } from "messages";
 import { StrokedHeading } from "components/homepage/Banner";
-
-const walletConnKeyLS = "wallet_permission";
 
 const Mint = () => {
   const [ethAddress, setEthAddress] = useState("");
   const [ethAddressWC, setEthAddressWC] = useState("");
   const [supplyStats, setStats] = useState({});
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
 
   const handleMetamaskConnect = () => {
     setEthAddressWC("");
@@ -91,7 +91,8 @@ const Mint = () => {
   };
 
   useEffect(() => {
-    connectMetamask();
+    const now = Date.now();
+    if (now >= MINT_DATE.getTime()) connectMetamask();
     // cleanup
     return () => {
       window.web3 = undefined;
@@ -118,6 +119,100 @@ const Mint = () => {
     if (ethAddress || ethAddressWC) fetchSupplyStats();
   }, [ethAddress, ethAddressWC]);
 
+  const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
+    if (!completed) {
+      // Render a completed state
+      return (
+        <Flex flexDirection="column" alignItems="center" py={[5]}>
+          <StrokedHeading
+            textAlign={["center"]}
+            fontSize={[6, 8]}
+            fontWeight={[900]}
+            sx={{
+              color: colors.light,
+            }}
+            mb={[3]}
+            strokeColor={colors.primary}
+          >
+            Launching in...
+          </StrokedHeading>
+          <Flex
+            flexDirection="row"
+            mx={[3]}
+            sx={{ color: colors.primary }}
+            width={["auto", "450px"]}
+          >
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily={fonts.body + " !important"}
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {days}
+              </Heading>
+              <Text mb={[2, 4]}>Days</Text>
+            </Box>
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily={fonts.body + " !important"}
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(hours)}
+              </Heading>
+              <Text mb={[2, 4]}>Hours</Text>
+            </Box>
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily={fonts.body + " !important"}
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(minutes)}
+              </Heading>
+              <Text mb={[2, 4]}>Minutes</Text>
+            </Box>
+            <Box>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily={fonts.body + " !important"}
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(seconds)}
+              </Heading>
+              <Text mb={[2, 4]}>Seconds</Text>
+            </Box>
+          </Flex>
+        </Flex>
+      );
+    } else {
+      return (
+        <>
+          <StrokedHeading
+            textAlign={["center"]}
+            fontSize={[6, 8]}
+            fontWeight={[900]}
+            sx={{
+              color: colors.light,
+            }}
+            mb={[3]}
+            strokeColor={colors.primary}
+          >
+            Join Us
+          </StrokedHeading>
+          <Text mb={[5]} textAlign={["center"]} sx={{ color: colors.light1 }}>
+            Get some koality NFTs eating eucalyptus on top of trees
+          </Text>
+          <MintWidget ethAddress={ethAddress || ethAddressWC} />
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <Box
@@ -137,22 +232,7 @@ const Mint = () => {
           justifyContent="center"
         >
           <Box px={[5]}>
-            <StrokedHeading
-              textAlign={["center"]}
-              fontSize={[6, 8]}
-              fontWeight={[900]}
-              sx={{
-                color: colors.light,
-              }}
-              mb={[3]}
-              strokeColor={colors.primary}
-            >
-              Join Us
-            </StrokedHeading>
-            <Text mb={[5]} textAlign={["center"]} sx={{ color: colors.light1 }}>
-              Get some koality NFTs eating eucalyptus on top of trees
-            </Text>
-            <MintWidget ethAddress={ethAddress || ethAddressWC} />
+            <Countdown date={MINT_DATE} renderer={countdownRenderer} />
           </Box>
         </Flex>
         <SecondarySection
