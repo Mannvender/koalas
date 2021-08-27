@@ -2,18 +2,19 @@ export const DEFAULT_ERROR_MESSAGE =
   "Something went wrong! We are looking into it.";
 
 export const ROADMAP = [
-  { when: "17%", what: "5plush koalas to our early minters" },
+  { when: "20%", what: "5 plush koala toys to our early minters." },
+  { when: "40%", what: "4 people win a day out at Aus zoo." },
   {
-    when: "50%",
-    what: "Koalas don't drink much water, but water project could use 1ETH from us",
+    when: "60%",
+    what: "10 koalas airdropped to most creative uses of kool koalas.",
   },
   {
-    when: "75%",
-    what: "10 koala raffle for #1-#1363 kool koalas",
+    when: "80%",
+    what: "Crikey! We got our friend Bert at Aus zoo waiting for adoption.",
   },
   {
     when: "100%",
-    what: "Crikey! Bert's waiting for us at Aus zoo for Adoption. Also 4 kool koalas win a day out at aus zoo.",
+    what: "Koalas don't drink much water, but Water Project could use 1ETH from us.",
   },
 ];
 

@@ -5,7 +5,7 @@ import { GiKoala as GiKoalaBase } from "react-icons/gi";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { LinkInternal as NavLink } from "./Links";
+import { LinkInternal as NavLink, LinkExternal as Link } from "./Links";
 
 const GiKoala = styled(GiKoalaBase)`
   cursor: pointer;
@@ -68,14 +68,20 @@ const NavSection = ({ supplyStats }) => {
           </Text>
         )}
         {!supplyStats && (
-          <Image
-            height="60px"
-            width="60px"
-            src={`/koala_031.png`}
-            alt={`koala 031`}
-            quality="70"
-            className="gray-filter"
-          />
+          <Link
+            href="https://twitter.com/LokoKoala05"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              height="60px"
+              width="60px"
+              src={`/koala_031.png`}
+              alt={`koala 031`}
+              quality="70"
+              className="gray-filter"
+            />
+          </Link>
         )}
       </Flex>
     </Box>
