@@ -1,14 +1,16 @@
-import { Box } from "rebass";
+import { Box, Text } from "rebass";
 import { useState } from "react";
 import styled, { useTheme } from "styled-components";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import Label from "./Label";
 import Input from "./Input";
 import Button from "./RectangularButton";
 import { address, abi, price } from "smartContract";
 import { DEFAULT_ERROR_MESSAGE } from "messages";
+import { LinkExternal as Link } from "./Links";
 
 export const StyledBox = styled(Box)`
   background-repeat: no-repeat;
@@ -101,6 +103,24 @@ const MintWidget = ({ ethAddress }) => {
       >
         Mint
       </Button>
+      <Box mt={[3]} textAlign="center">
+        <Link
+          href="https://etherscan.io/address/0x205c2901af5b76c1a619d3c252a49368ad6055cb"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaExternalLinkAlt size="12px" />
+          <Text fontSize={[1]} marginLeft={[2]}>
+            Take me to Contract
+          </Text>
+        </Link>
+      </Box>
     </StyledBox>
   );
 };
