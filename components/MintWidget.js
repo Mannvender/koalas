@@ -74,7 +74,7 @@ const MintWidget = ({ ethAddress }) => {
   return (
     <StyledBox p={[0, 3]}>
       <Box my={[1]} textAlign="center">
-        <Label htmlFor="mint_amount">How many koalas?</Label>
+        <Label htmlFor="mint_amount">How many koalas? (18max/txn)</Label>
       </Box>
       <Box
         sx={{
