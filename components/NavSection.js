@@ -59,14 +59,11 @@ const NavSection = ({ supplyStats }) => {
           borderTop: `1px solid ${colors.dark}`,
         }}
       >
-        {/* {supplyStats?.totalSupply && (
+        {supplyStats?.totalSupply && (
           <Text fontSize={[1]} textAlign="center">
-            {((supplyStats.totalSupply / supplyStats.MAX_EAGLES) * 100).toFixed(
-              2
-            )}
-            % Sold
+            {supplyStats.totalSupply} / {supplyStats.MAX_KOALAS} Sold
           </Text>
-        )} */}
+        )}
         {!supplyStats && (
           <Link
             href="https://twitter.com/LokoKoala05"

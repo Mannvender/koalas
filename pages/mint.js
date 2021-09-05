@@ -105,10 +105,9 @@ const Mint = () => {
       try {
         if (web3) {
           const contract = new web3.eth.Contract(abi, address);
-          // console.log(contract.methods, '--------methids--------')
           const totalSupply = await contract.methods.totalSupply().call();
-          const MAX_EAGLES = await contract.methods.MAX_KOALAS().call();
-          setStats({ totalSupply, MAX_EAGLES });
+          const MAX_KOALAS = await contract.methods.MAX_KOALAS().call();
+          setStats({ totalSupply, MAX_KOALAS });
         }
       } catch (error) {
         console.log("error at contract end", error);
